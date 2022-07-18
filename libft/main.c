@@ -30,7 +30,7 @@ void	print_array(char **array_words , int *posicion)
 		}
 		printf("palabra No %i : %s. Numero entero : %i ira en la posicion del stack: %iª \n",
 		 i, array_words[i], ft_atoi((const char *)array_words[i]), *posicion);
-		//si llega aqui hay que convertir el numero y mndarlo a la lista
+		// ft_create_node(). Usamos los parametros de arriba , numero entero y posicion del stack
 		*posicion = *posicion + 1;
 		i++;
 	}
@@ -39,8 +39,7 @@ void	print_array(char **array_words , int *posicion)
 int	main(int argc, char **argv)
 {
 	char **array_words;
-	const char *frase;
-	int posicion;
+	size_t posicion;
 	int i;
 
 	char c = ' ';
@@ -50,11 +49,10 @@ int	main(int argc, char **argv)
 		printf("error en argumentos de etrada. Mete mas argumentos compay\n");
 		return (1);
 	}
-	i = 1;
+	i = 1; // esto ser'a 0 en la funcion
 	while (i < argc)
 	{
-		frase = argv[i];
-		array_words = ft_split(frase, c);
+		array_words = ft_split(argv[i], c);
 		printf("--- imprimirmos el arc: %i ----\n", i);
 		print_array(array_words, &posicion);
 		i++;
