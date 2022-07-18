@@ -6,7 +6,7 @@
 /*   By: fnieves- <fnieves-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/15 11:33:44 by fnieves-          #+#    #+#             */
-/*   Updated: 2022/07/18 12:38:55 by fnieves-         ###   ########.fr       */
+/*   Updated: 2022/07/18 17:01:48 by fnieves-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ una vez tengamos el array de string , lo vamos convirtiendo a con atoi, a la vez
 int	main(int argc, char **argv)
 {
 	t_head_list		head_a;
-	
+	// declaramos todas las variables y las iniciliazmos a NULL. Para cuando tengamos un error hacemos free de todo: stack a , b y ft split. Hacer funcion free.
 	head_a.header = NULL;
 	if (argc < 2)
 		return (0);
