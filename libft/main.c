@@ -1,11 +1,14 @@
 
 #include "libft.h"
 
-void	print_array(char **array_words)
+void	print_array(char **array_words, int argc)
 {
 	int	i;
+	int	j;
+	int	posicion;
 
 	i = 0;
+	posicion = 1;
 	if (!array_words[i])
 	{
  		printf("array de 0 \n"); //si metemos entre comillas ningun argumento
@@ -13,7 +16,22 @@ void	print_array(char **array_words)
 	}
 	while (array_words[i])
 	{
-		printf("palabra No %i : %s\n", i, array_words[i]);
+		//printf("palabra No %i : %s. Numero entero : %i\n", i, array_words[i], ft_atoi((const char *)array_words[i]));
+		j = 0;
+		if ('-' == array_words[i][j])
+			j++;
+		while (array_words[i][j])
+		{
+			if (!ft_isdigit(array_words[i][j]))
+			{
+				printf("ha encontardo un NO digito. salete\n");
+				exit (2);				
+			}
+			//printf("digito ok! sigue\n");
+			j++;
+		}
+		printf("palabra No %i : %s. Numero entero : %i ira en la posicion del stack: %iª \n", i, array_words[i], ft_atoi((const char *)array_words[i]), i + argc);
+		//si llega aqui hay que convertir el numero y mndarlo a la lista
 		i++;
 	}
 }
@@ -37,7 +55,7 @@ int	main(int argc, char **argv)
 		frase = argv[i];
 		array_words = ft_split(frase, c);
 		printf("--- imprimirmos el arc: %i ----\n", i);
-		print_array(array_words);
+		print_array(array_words, i);
 		i++;
 	}
 	return (0);
