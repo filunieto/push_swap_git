@@ -1,1 +1,1 @@
-{"buildTargets":["all","bonus","clean","fclean","push_swap.a","re"],"launchTargets":[],"customConfigurationProvider":{"workspaceBrowse":{"browsePath":[],"compilerArgs":[]},"fileIndex":[]}}
+{"buildTargets":["all","bonus","clean","fclean","libft.a","push_swap.a","re"],"launchTargets":["/Users/fnieves-/Documents/Proyectos/push swap pryct/push_swap_git>push_swap.a()"],"customConfigurationProvider":{"workspaceBrowse":{"browsePath":[],"compilerArgs":[]},"fileIndex":[]}}
