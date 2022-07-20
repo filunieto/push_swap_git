@@ -6,7 +6,7 @@
 /*   By: fnieves- <fnieves-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/15 12:54:14 by fnieves-          #+#    #+#             */
-/*   Updated: 2022/07/20 13:20:58 by fnieves-         ###   ########.fr       */
+/*   Updated: 2022/07/20 19:35:01 by fnieves-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 **  creamos nodo,y vamos apilandolos, primer input ,top del stack A, segundo , al segundo... y verificamos que no esta repetido
 */
 
-void	ft_create_node(t_head_list *head, int value_node, size_t position)
+void	ft_create_node_addend(t_head_list *head, int value_node, size_t position)
 {
 	t_node *new_node;
 
@@ -27,20 +27,15 @@ void	ft_create_node(t_head_list *head, int value_node, size_t position)
 	new_node->position = position;
 	new_node->next = NULL;
 	new_node->prev = NULL;
+	if (!head->header)
+	{
+		
+	}
 	if (head->max < new_node->number)
 		head->max = new_node->number;
 	if (head->min > new_node->number)
 		head->min = new_node->number;
-	head->size_list++;
-	if (!head->header)
-	{
-		head->header = new_node;
-		head->tail = new_node;
-		return ;
-	}
-	new_node->prev = head->tail;
-	head->tail->next = new_node;
-	head->tail = new_node;
+	add_node_end(head, new_node);
 }
 
 void	print_array(t_head_list *head, char **array_words , size_t *position)
@@ -68,7 +63,7 @@ void	print_array(t_head_list *head, char **array_words , size_t *position)
 			}
 			j++;
 		}
-		ft_create_node(head, ft_atoi((const char *)array_words[i]), (int) *position);
+		ft_create_node_addend(head, ft_atoi((const char *)array_words[i]), (int) *position);
 		//free(array_words[i]); //atencion: creo que no es suficiente con este free para no tener probelmas luego. estoy hay que meterlo cada vez que hay un error
 		*position = *position + 1;
 		i++;
@@ -116,43 +111,110 @@ void	print_list(t_head_list *head)
 	// printf("\n----Reves, desde el Tail hasta el header----\n");
 	// while (temp)
 	// {
-	// 	printf("elemento posic %i, valor: %i \n", temp->position, temp->number);
+	// 	printf("elemento %i, valor= %i \n",temp->position, temp->number);
 	// 	temp = temp->prev;
 	// }
 	printf("-------FIN DE IMPRESION de lista-------\n");
 }
 
-void	swap_one(t_head_list *head)
+void	print_node(t_node *node_tocheck)
+{
+	printf("-------Informacion un unico nodo----------\n");
+	if (!node_tocheck->next && !node_tocheck->prev)
+		printf("next y previous no apuntan a anda. Nodo en el vacio\n");
+	else
+		printf("next y previous apuntan a algo. El nodo esta enlazado\n");
+	printf("valores de nodo: %i y posicion: %i\n", node_tocheck->number, node_tocheck->position);
+	printf("-------FIN DE IMPRESION de unico nodo-------\n");
+}
+
+void	swap_one(t_head_list *head) //pasar esta funciona move_stack.c
 {
 	t_node	*old_first;
 	t_node	*new_first;
 	t_node	*third;
 
 	if (head->size_list < 2)
-	{
-		printf("no hay elementos o solo 1. No hay  swap a\n");
 		return ;
-	}
 	old_first = head->header;
 	new_first = old_first->next;
+	new_first->prev = NULL;  //1
+	head->header = new_first; //2
+	old_first->prev = new_first; //3
+	printf("s%c\n", head->stack_name); //estoy hay que buscarse como hacerlo mejor
 	if (head->size_list == 2)
 	{
-		old_first->prev = new_first; // (3)
 		new_first->next = old_first;
-		new_first->prev = NULL;
 		old_first->next = NULL;
-		head->header = new_first; // (4)
 		head->tail = old_first;
-		printf("2 elementos en lista\n");
 		return ;
-	} //no se si esto habria que hacerlo en 2 partes , primero verificar primer nodo y luego el segundo mas abajo
-	printf("3 o mas elementos en lista\n");
+	} 
 	third = new_first->next;
 	third->prev = old_first;
 	old_first->next = third;
 	new_first->next = old_first; 
-	old_first->prev = new_first; 
-	new_first->prev = NULL;  
-	head->header = new_first; 
-	printf("s%c\n", head->stack_name); //estoy hay que buscarse como hacerlo mejor
+}
+
+/* 
+** Si la lista pusher esta vacia: no hacemos nada
+** Si la lista pusher tiene 1 elemento: guardamos le nodo , e iniciliazamos lista
+** Si la lista pusher tiene > 2 elementos: guardamos nodo, y actualizamos lista
+*/
+void	push_topushed(t_head_list *head_pusher, t_head_list *head_pushed)  //pasar esta funciona move_stack.c
+{
+	t_node	*pusher;
+	t_node	*newfirst_pusher; //solo a usar si hay mas de un elemento en la lista del spusher
+
+	if (head_pusher->size_list == 0)
+	{
+		printf("la lista que empuja esta vacia\n"); //esto hayqque borrarlo
+		return ;
+	}
+	pusher = head_pusher->header;
+	if (head_pusher->size_list == 1)
+	{
+		initialize_list(head_pusher, head_pusher->stack_name);
+	}
+	else
+	{
+		newfirst_pusher = pusher->next; //atencion: aqui ya falla
+		pusher->next = NULL;
+		newfirst_pusher->prev = NULL;
+
+		head_pusher->header = newfirst_pusher;
+		head_pusher->size_list--;
+	}
+	add_node_begginig(head_pushed, pusher); //esta funcion anade el nodo al pripncipi y acrualiz parametros
+	printf("push%c --- pusher:%c ,  pushed:%c ,\n", head_pushed->stack_name, head_pusher->stack_name, head_pushed->stack_name);
+}
+
+void	add_node_begginig(t_head_list *head, t_node *new_node) //pasar esta funcion a operations_in_list.c
+{
+	t_node	*old_first;
+
+	head->size_list++;
+	if (!head->header)
+	{
+		head->header = new_node;
+		head->tail = new_node;
+		return ;
+	}
+	old_first = head->header;
+	old_first->prev = new_node;
+	new_node->next = old_first;
+	head->header = new_node;
+}
+
+void add_node_end(t_head_list *head, t_node *new_node) //pasar esta funcion a operations_in_list.c
+{
+	head->size_list++;
+	if (!head->header)
+	{
+		head->header = new_node;
+		head->tail = new_node;
+		return ;
+	}
+	new_node->prev = head->tail;
+	head->tail->next = new_node;
+	head->tail = new_node;
 }

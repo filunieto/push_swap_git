@@ -6,7 +6,7 @@
 /*   By: fnieves- <fnieves-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/15 11:33:47 by fnieves-          #+#    #+#             */
-/*   Updated: 2022/07/19 19:14:05 by fnieves-         ###   ########.fr       */
+/*   Updated: 2022/07/20 17:51:00 by fnieves-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,14 +47,22 @@ typedef struct s_head_list
 void	extract_inputs_tolist(int argc, char **argv1, t_head_list *head, char **array_words);
 void	initialize_list(t_head_list *head, char stack_name);
 void	print_array(t_head_list *head, char **array_words , size_t *posicion);
+
 void	print_list(t_head_list *head);
+void	print_node(t_node *node_tocheck);
+
+int		check_doubles(t_head_list *head);
+
 
 void	error_and_free_all(t_head_list *head_a, t_head_list *head_b);
 void	delete_list(t_head_list *head);
-int		check_doubles(t_head_list *head);
+
+
 void	swap_one(t_head_list *head);
+void	push_topushed(t_head_list *head_pusher, t_head_list *head_pushed);
 
-
+void	add_node_begginig(t_head_list *head, t_node *new_node);
+void	add_node_end(t_head_list *head, t_node *new_node);
 
 
 #endif

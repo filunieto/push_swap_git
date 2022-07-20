@@ -30,7 +30,7 @@ void	print_array(char **array_words , int *posicion)
 		}
 		printf("palabra No %i : %s. Numero entero : %i ira en la posicion del stack: %iª \n",
 		 i, array_words[i], ft_atoi((const char *)array_words[i]), *posicion);
-		// ft_create_node(). Usamos los parametros de arriba , numero entero y posicion del stack
+		// ft_create_node_addend(). Usamos los parametros de arriba , numero entero y posicion del stack
 		*posicion = *posicion + 1;
 		i++;
 	}
