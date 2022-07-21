@@ -6,7 +6,7 @@
 /*   By: fnieves- <fnieves-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/15 11:33:47 by fnieves-          #+#    #+#             */
-/*   Updated: 2022/07/20 17:51:00 by fnieves-         ###   ########.fr       */
+/*   Updated: 2022/07/21 11:46:51 by fnieves-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,9 +60,15 @@ void	delete_list(t_head_list *head);
 
 void	swap_one(t_head_list *head);
 void	push_topushed(t_head_list *head_pusher, t_head_list *head_pushed);
+void	rotate_stack(t_head_list *head);
+void	rotate_stack_reverse(t_head_list *head);
+
 
 void	add_node_begginig(t_head_list *head, t_node *new_node);
 void	add_node_end(t_head_list *head, t_node *new_node);
+void	increas_posit_nodes(t_head_list *head);
+void	decreas_posit_nodes(t_head_list *head);
+
 
 
 #endif

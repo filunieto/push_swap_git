@@ -6,7 +6,7 @@
 /*   By: fnieves- <fnieves-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/15 11:33:44 by fnieves-          #+#    #+#             */
-/*   Updated: 2022/07/20 19:15:45 by fnieves-         ###   ########.fr       */
+/*   Updated: 2022/07/21 11:50:50 by fnieves-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,13 +48,25 @@ int	main(int argc, char **argv)
 	// swap_one(&head_a); solo para pruebas
 	printf("---impresion de la lista de datos original: head_a\n");
 	print_list(&head_a);
+	//print_list(&head_b);
 
-	push_topushed(&head_a, &head_b);
-	push_topushed(&head_a, &head_b);
-	printf("---impresion de la lista pusher head_a\n");
+	printf("\n\n");
+
+	rotate_stack_reverse(&head_a);
+	printf("---impresion de la lista rotada reversa head_a\n");
 	print_list(&head_a);
-	printf("---impresion de la lista pushed head_b\n");
-	print_list(&head_b);
+	rotate_stack_reverse(&head_a);
+	printf("---impresion de la lista rotada reversa head_a\n");
+	print_list(&head_a);
+	rotate_stack(&head_a);
+	rotate_stack(&head_a);
+	printf("---impresion de la lista rotada 2 veces inversamente  tiene que ser original head_a\n");
+	print_list(&head_a);
+
+	// printf("---impresion de la lista pushed head_b\n");
+	// print_list(&head_b);
+	
+	
 	// if (!head_a.header) // Necesito verificr esto??
 	// {
 	// 	printf("Problemas convirtiendo inputs en lista\n"); //hariamos directamente un error and free
