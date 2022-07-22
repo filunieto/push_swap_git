@@ -1,40 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fnieves- <fnieves-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/28 01:40:11 by fnieves           #+#    #+#             */
-/*   Updated: 2022/07/15 19:41:19 by fnieves-         ###   ########.fr       */
+/*   Created: 2022/01/26 01:07:00 by fnieves           #+#    #+#             */
+/*   Updated: 2022/03/28 21:06:46 by fnieves-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
-int	ft_atoi(const char *nptr)
+/*
+** We look for charcater c in the string s. 
+** returns the pointer to the first position found.
+** Null if not found.
+** if char = 0: returns the last position of s (0).
+*/
+char	*ft_strchr(const char *s, int c)
 {
-	int	i;
-	int	res;
-	int	sign;
+	char	*pts;
 
-	i = 0;
-	res = 0;
-	sign = 1;
-	while (((nptr[i] >= 9 && nptr[i] <= 13) || nptr[i] == 32) && nptr[i])
+	pts = (char *)(s);
+	while (*pts)
 	{
-		i++;
+		if (*pts == (char)c)
+			return (pts);
+		pts++;
 	}
-	if ('+' == nptr[i] || '-' == nptr[i])
-	{
-		if ('-' == nptr[i])
-			sign = -1;
-		i++;
-	}
-	while ('0' <= nptr[i] && '9' >= nptr[i])
-	{
-		res = res * 10 + ((nptr[i] - '0'));
-		i++;
-	}
-	return (sign * (res));
+	if (!(char)c)
+		return (pts);
+	return (NULL);
 }

@@ -6,60 +6,57 @@
 /*   By: fnieves- <fnieves-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/05 18:39:57 by fnieves-          #+#    #+#             */
-/*   Updated: 2022/07/17 00:58:34 by fnieves-         ###   ########.fr       */
+/*   Updated: 2022/04/05 19:30:19 by fnieves-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
+/*
+ ** Function count_words (assuming c +=' ')
+ ** 2 conditions:
+ ** it will add a word when it reaches the end of the string
+ **  and the previous character is not a null character (case if s != "")
+ ** Or if it reaches the character c and
+ ** the preceding character is not the character c.
+ ** Function create_word: receive each time a pointer
+ ** to the beggining of the next word and calculate lenght till end of word
+ ** Use this index for allocating memory and copy nullterminating.
+*/
 static char	*create_word(char const *s, char c)
 {
-	char	*word_created;
+	char	*dest;
 	int		i;
 
 	i = 0;
 	while (s[i] && s[i] != c)
 		i++;
-	word_created = (char *)malloc(sizeof(char) * i + 1);
-	if (!word_created)
+	dest = (char *)malloc(sizeof(char) * i + 1);
+	if (!dest)
 		return (NULL);
 	i = 0;
 	while (s[i] && s[i] != c)
 	{
-		word_created[i] = s[i];
+		dest[i] = s[i];
 		i++;
 	}
-	word_created[i] = 0;
-	return (word_created);
+	dest[i] = '\0';
+	return (dest);
 }
 
 static int	count_words(char const *s, char c)
 {
-	int		number_words;
-	int		i;
-
-	i = 0;
-	number_words = 0;
-	while (s[i])
-	{
-		if (s[i] != c && (s[i + 1] == c || !s[i + 1]))
-			number_words++;
-		i++;
-	}
-	return (number_words);
-}
-
-static char	**free_array(char **array_words)
-{
+	int	words_number;
 	int	i;
 
 	i = 0;
-	while (array_words[i])
+	words_number = 0;
+	while (s[i])
 	{
-		free(array_words[i++]);
+		if (s[i] != c && (s[i + 1] == c || !s[i + 1]))
+			words_number++;
+		i++;
 	}
-	free(array_words);
-	return (NULL);
+	return (words_number);
 }
 
 char	**ft_split(char const *s, char c)
@@ -69,17 +66,15 @@ char	**ft_split(char const *s, char c)
 
 	if (!s)
 		return (NULL);
-	array_words = (char **)malloc(sizeof(char *) * (count_words(s, c) + 1));
+	i = 0;
+	array_words = malloc(sizeof(char *) * (count_words(s, c) + 1));
 	if (!array_words)
 		return (NULL);
 	while (*s && *s == c)
 		s++;
-	i = 0;
 	while (*s)
 	{
 		array_words[i++] = create_word(s, c);
-		if (!array_words[i - 1])
-			return (free_array(array_words));
 		while (*s && *s != c)
 			s++;
 		while (*s && *s == c)

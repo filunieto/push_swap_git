@@ -1,18 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isdigit.c                                       :+:      :+:    :+:   */
+/*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fnieves <fnieves@42heilbronn.de>           +#+  +:+       +#+        */
+/*   By: fnieves- <fnieves-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/20 11:59:04 by felipe            #+#    #+#             */
-/*   Updated: 2022/01/24 16:39:41 by fnieves          ###   ########.fr       */
+/*   Created: 2022/01/29 02:12:44 by fnieves           #+#    #+#             */
+/*   Updated: 2022/03/28 13:04:00 by fnieves-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_isdigit(int c)
+void	ft_bzero(void *s, size_t n)
 {
-	return ('0' <= c && c <= '9');
+	size_t			i;
+	unsigned char	*point;
+
+	point = (unsigned char *)(s);
+	i = 0;
+	while (i < n)
+	{
+		point[i] = 0;
+		i++;
+	}
 }

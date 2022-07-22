@@ -6,53 +6,71 @@
 #    By: fnieves- <fnieves-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/15 10:55:21 by fnieves-          #+#    #+#              #
-#    Updated: 2022/07/19 10:46:02 by fnieves-         ###   ########.fr        #
+#    Updated: 2022/07/22 10:30:55 by fnieves-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRCS				=	push_swap.c \
-						push_swap_tools.c \
+VPATH	= src #bonus, anadir?
+INCFLAGS = -I libft -I include #si ncluimls mas librerias modificar
 
-LIBFTFILES		= 	ft_isdigit.c \
-					ft_split.c \
-					ft_atoi.c \
+CC		= cc
+FLAGS	= -Wall -Werror -Wextra
+RM		= rm -f
+# BONUSNAME = push_swap?
 
-LIB				=	libft.a 
+NAME	= push_swap
+# BONUSNAME = push_swap?
+HEADER	= 	include/push_swap.h
 
-LIBFTSRCS		= $(addprefix libft/,$(LIBFTFILES))
+SRC	= 		push_swap.c \ 
+			operations_in_list.c \ 
+			moves_stack.c main.c \
+			main.c \
+			convert_input_tolist.c \
+			checking_lists.c \
 
-OBJS			= $(SRCS:.c=.o)
-
-LIBFTOBJS		= $(LIBFTSRCS:.c:.o)
-
-HEADER			= push_swap.h
-
-CC				= cc
-RM				= rm -f
-CFLAGS			= -Wall -Wextra -Werror
-NAME			= push_swap.a
-
-#rules
-all:			$(NAME)
-
-$(NAME):		$(OBJS) $(LIB)
-				$(CC) $(CFLAGS) -o $(NAME) -L. -lft
-
-$(LIB):			$(LIBFTOBJS) $(HEADER)
-				ar -rcs $(LIB) $(LIBFTOBJS)
-
-clean:
-				$(RM) $(OBJS) $(LIBFTOBJS)
-
-fclean:			clean
-				$(RM) $(NAME)
-
-re:				fclean all
-
-bonus:
-
-.PHONY:			all clean fclean re bonus
+# BON 	= main_bonus.c
 
 
-# para compilar miesntras tanto 
-# gcc -Wall -Wextra -Werror push_swap.c push_swap_tools.c libft/ft_atoi.c libft/ft_isdigit.c libft/ft_split.c -o push_swap
+LIBS	= libft/libft.a 	# ftprintf/libftprintf.a, ...
+OBJ		= $(addprefix obj/,$(notdir $(SRC:.c=.o)))
+# BONOBJ	= $(addprefix obj/,$(notdir $(BON:.c=.o)))
+
+# tengo que quitar el (-lm  -framework OpenGL -framework AppKit) de abajo?
+$(NAME) : $(OBJ) | $(LIBS)
+	$(CC) $(FLAGS) -o $@ $^ -Llibft -lft 
+
+obj/%.o : %.c $(LIBS) $(HEADER) | obj
+	$(CC) $(FLAGS) $(INCFLAGS) -c $< -o $@
+
+obj :
+	mkdir obj
+
+# -(cd ftprintf && make && make clean). Lo he borrado de abajo
+$(LIBS) :
+	-(cd libft && make)
+	-(cd libft && make clean)
+
+all : $(NAME)
+
+# bonus : $(BONOBJ) | $(LIBS) . Aqui habra que borrar movidas
+# 	$(CC) $(FLAGS) -o $(NAME) $^ -Llibft -lft -Lftprintf -lftprintf -lm -Lmlx -lmlx -framework OpenGL -framework AppKit
+
+clean :
+	$(RM) obj
+
+# -(cd ftprintf && make fclean) >> he borrado esto.
+fclean : clean
+	rm -f $(NAME)
+	-(cd libft && make fclean)
+	-(cd ftprintf && make fclean)
+
+re : clean all
+
+libs : fclean all
+
+.PHONY : all clean fclean re bonus
+
+
+# para compilar mientras funciona 
+# gcc -Wall -Wextra -Werror src/checking_lists.c src/convert_input_tolist.c  src/main.c  src/moves_stack.c src/operations_in_list.c src/push_swap.c libft/ft_atoi.c libft/ft_isdigit.c libft/ft_split.c -o push_swap

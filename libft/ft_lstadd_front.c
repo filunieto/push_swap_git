@@ -1,18 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isdigit.c                                       :+:      :+:    :+:   */
+/*   ft_lstadd_front.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fnieves <fnieves@42heilbronn.de>           +#+  +:+       +#+        */
+/*   By: fnieves- <fnieves-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/20 11:59:04 by felipe            #+#    #+#             */
-/*   Updated: 2022/01/24 16:39:41 by fnieves          ###   ########.fr       */
+/*   Created: 2022/02/07 14:57:12 by fnieves           #+#    #+#             */
+/*   Updated: 2022/04/05 19:37:32 by fnieves-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
-int	ft_isdigit(int c)
+/*
+ ** (*lst) = head of the list. 
+ ** (**lst) = We are a step before head of list
+*/
+void	ft_lstadd_front(t_list **lst, t_list *new)
 {
-	return ('0' <= c && c <= '9');
+	if (!lst || !new)
+		return ;
+	new->next = *lst;
+	*lst = new;
 }

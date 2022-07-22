@@ -6,7 +6,7 @@
 /*   By: fnieves- <fnieves-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/15 11:33:47 by fnieves-          #+#    #+#             */
-/*   Updated: 2022/07/21 11:46:51 by fnieves-         ###   ########.fr       */
+/*   Updated: 2022/07/21 18:43:03 by fnieves-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 # include <string.h>
 # include <unistd.h>
 # include <stdlib.h>
-# include "libft/libft.h"
+# include "../libft/libft.h"
 
 typedef struct s_movements
 {
@@ -36,8 +36,8 @@ typedef struct s_node
 
 typedef struct s_head_list
 {
-	t_node	*header; // t_node stack_a;
-	t_node	*tail; //// t_node stack_b;
+	t_node	*header;
+	t_node	*tail;
 	size_t	size_list;
 	int		max;
 	int		min;
@@ -68,7 +68,6 @@ void	add_node_begginig(t_head_list *head, t_node *new_node);
 void	add_node_end(t_head_list *head, t_node *new_node);
 void	increas_posit_nodes(t_head_list *head);
 void	decreas_posit_nodes(t_head_list *head);
-
 
 
 #endif

@@ -1,40 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_lstadd_back.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fnieves- <fnieves-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/28 01:40:11 by fnieves           #+#    #+#             */
-/*   Updated: 2022/07/15 19:41:19 by fnieves-         ###   ########.fr       */
+/*   Created: 2022/02/07 17:31:25 by fnieves           #+#    #+#             */
+/*   Updated: 2022/04/05 19:36:57 by fnieves-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
-int	ft_atoi(const char *nptr)
+/*
+  If there is no list or node to add, abort.
+  If the list is empty, add the node and abort.
+  Use an auxiliar pointer to scroll the list till the end,
+  add the node at the end.
+*/
+void	ft_lstadd_back(t_list **lst, t_list *new)
 {
-	int	i;
-	int	res;
-	int	sign;
+	t_list	*tmp;
 
-	i = 0;
-	res = 0;
-	sign = 1;
-	while (((nptr[i] >= 9 && nptr[i] <= 13) || nptr[i] == 32) && nptr[i])
+	if (!lst || !new)
+		return ;
+	if (*lst == NULL)
 	{
-		i++;
+		*lst = new;
+		return ;
 	}
-	if ('+' == nptr[i] || '-' == nptr[i])
-	{
-		if ('-' == nptr[i])
-			sign = -1;
-		i++;
-	}
-	while ('0' <= nptr[i] && '9' >= nptr[i])
-	{
-		res = res * 10 + ((nptr[i] - '0'));
-		i++;
-	}
-	return (sign * (res));
+	tmp = *lst;
+	while (tmp->next)
+		tmp = tmp->next;
+	tmp->next = new;
 }

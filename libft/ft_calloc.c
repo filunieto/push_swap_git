@@ -1,18 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isdigit.c                                       :+:      :+:    :+:   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fnieves <fnieves@42heilbronn.de>           +#+  +:+       +#+        */
+/*   By: fnieves- <fnieves-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/20 11:59:04 by felipe            #+#    #+#             */
-/*   Updated: 2022/01/24 16:39:41 by fnieves          ###   ########.fr       */
+/*   Created: 2022/02/04 17:46:16 by fnieves           #+#    #+#             */
+/*   Updated: 2022/03/28 21:26:21 by fnieves-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
-int	ft_isdigit(int c)
+/*
+ ** returns a pointer of zeros of 'nmebl' element
+ ** of size bytes.
+ */
+void	*ft_calloc(size_t nmemb, size_t size)
 {
-	return ('0' <= c && c <= '9');
+	void	*dest;
+
+	dest = malloc(nmemb * size);
+	if (!dest)
+		return (NULL);
+	ft_bzero(dest, nmemb * size);
+	return (dest);
 }

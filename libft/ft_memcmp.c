@@ -1,40 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_memcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fnieves- <fnieves-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/28 01:40:11 by fnieves           #+#    #+#             */
-/*   Updated: 2022/07/15 19:41:19 by fnieves-         ###   ########.fr       */
+/*   Created: 2022/01/31 23:58:43 by fnieves           #+#    #+#             */
+/*   Updated: 2022/04/01 16:45:32 by fnieves-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_atoi(const char *nptr)
+int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {
-	int	i;
-	int	res;
-	int	sign;
+	unsigned char	*pts1;
+	unsigned char	*pts2;
+	size_t			i;
 
 	i = 0;
-	res = 0;
-	sign = 1;
-	while (((nptr[i] >= 9 && nptr[i] <= 13) || nptr[i] == 32) && nptr[i])
+	pts1 = (unsigned char *)s1;
+	pts2 = (unsigned char *)s2;
+	while (n--)
 	{
+		if (pts1[i] != pts2[i])
+		{
+			return (pts1[i] - pts2[i]);
+		}
 		i++;
 	}
-	if ('+' == nptr[i] || '-' == nptr[i])
-	{
-		if ('-' == nptr[i])
-			sign = -1;
-		i++;
-	}
-	while ('0' <= nptr[i] && '9' >= nptr[i])
-	{
-		res = res * 10 + ((nptr[i] - '0'));
-		i++;
-	}
-	return (sign * (res));
+	return (0);
 }

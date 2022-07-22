@@ -1,26 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fnieves- <fnieves-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/15 11:33:44 by fnieves-          #+#    #+#             */
-/*   Updated: 2022/07/21 11:50:50 by fnieves-         ###   ########.fr       */
+/*   Created: 2022/07/21 13:33:42 by fnieves-          #+#    #+#             */
+/*   Updated: 2022/07/21 18:42:42 by fnieves-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
-
-void	initialize_list(t_head_list *head, char stack_name)
-{
-	head->header = NULL;
-	head->tail = NULL;
-	head->max = 0;
-	head->min = 0;
-	head->size_list = 0;
-	head->stack_name = stack_name;
-}
+#include "../include/push_swap.h"
 
 void	check(void) //funcion para borrar
 {
@@ -77,39 +67,4 @@ int	main(int argc, char **argv)
 	//sorting_list(&head_a);
 	
 	return (2);
-}
-
-void	error_and_free_all(t_head_list *head_a, t_head_list *head_b) //hay qe borrar el array de char depsues de split
-{
-	/* borar listas y free el char ** de malloc  e imprimir el mensaje de error*/
-	//int	i;
-	delete_list(head_a);
-	delete_list(head_b);
-	//i = 0;
-	// while (array_words[i])
-	// {
-	// 	printf("ha borrado las listas y va a borrar el array :%i, %s\n", i, array_words[i]);
-	// }
-	write(1, "Salida de Funcion error_and_free_all\n", 38); //modificar esto
-	//exit (2);
-}
-
-void	delete_list(t_head_list *head)
-{
-	t_node	*node_todelete;
-	t_node	*current;
-
-	if (!head->header)
-		return ;
-	current = head->header;
-	while (current)
-	{
-		node_todelete = current;
-		current = current->next;
-		node_todelete->next = NULL;
-		node_todelete->prev = NULL;
-		free(node_todelete);
-	}
-	head->header = NULL;
-	head->tail = NULL;
 }

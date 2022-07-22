@@ -1,40 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fnieves- <fnieves-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/28 01:40:11 by fnieves           #+#    #+#             */
-/*   Updated: 2022/07/15 19:41:19 by fnieves-         ###   ########.fr       */
+/*   Created: 2022/01/27 16:30:08 by fnieves           #+#    #+#             */
+/*   Updated: 2022/05/06 12:27:55 by fnieves-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
-int	ft_atoi(const char *nptr)
+/*
+ ** Allocates memory and copy string s into this memory.
+ ** Returns the pointer with the string(ending in 0).
+ ** Returns null if any memory problem.
+*/
+char	*ft_strdup(const char *s)
 {
-	int	i;
-	int	res;
-	int	sign;
+	char	*dest;
+	int		leng_s;
+	int		i;
 
+	leng_s = ft_strlen((const char *)s);
+	dest = (char *)malloc(sizeof(char) * (leng_s +1));
+	if (!dest)
+		return (NULL);
 	i = 0;
-	res = 0;
-	sign = 1;
-	while (((nptr[i] >= 9 && nptr[i] <= 13) || nptr[i] == 32) && nptr[i])
+	while (s[i])
 	{
+		dest[i] = s[i];
 		i++;
 	}
-	if ('+' == nptr[i] || '-' == nptr[i])
-	{
-		if ('-' == nptr[i])
-			sign = -1;
-		i++;
-	}
-	while ('0' <= nptr[i] && '9' >= nptr[i])
-	{
-		res = res * 10 + ((nptr[i] - '0'));
-		i++;
-	}
-	return (sign * (res));
+	dest[i] = '\0';
+	return ((char *)dest);
 }

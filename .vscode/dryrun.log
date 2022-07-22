@@ -1,9 +1,7 @@
 make --dry-run --always-make --keep-going --print-directory
 make: Entering directory `/Users/fnieves-/Documents/Proyectos/push swap pryct/push_swap_git'
-cc -Wall -Wextra -Werror   -c -o push_swap.o push_swap.c
  
-cc -Wall -Wextra -Werror   -c -o push_swap_tools.o push_swap_tools.c
-ar -rcs libft.a  
-cc -Wall -Wextra -Werror -o push_swap.a -L. -lft
 make: Leaving directory `/Users/fnieves-/Documents/Proyectos/push swap pryct/push_swap_git'
  
+Makefile:26: *** commands commence before first target.  Stop.
+
