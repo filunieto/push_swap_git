@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   moves_stack.c                                      :+:      :+:    :+:   */
+/*   moves_basic_stack.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fnieves- <fnieves-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/19 16:58:59 by fnieves-          #+#    #+#             */
-/*   Updated: 2022/07/22 12:12:29 by fnieves-         ###   ########.fr       */
+/*   Updated: 2022/07/23 19:23:40 by fnieves-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-void	ss(t_head_list *head) //pasar esta funciona move_stack.c
+void	swap_one(t_head_list *head) //pasar esta funciona move_stack.c
 {
 	t_node	*old_first;
 	t_node	*new_first;
@@ -65,7 +65,7 @@ void	push_topushed(t_head_list *head_pusher, t_head_list *head_pushed)  //pasar 
 		decreas_posit_nodes(head_pusher);
 	}
 	add_node_begginig(head_pushed, pusher);
-	printf("p%c\n", head_pushed->stack_name);
+	printf("p%c\n", head_pushed->stack_name); //modificar esto
 }
 
 void	rotate_stack(t_head_list *head)
@@ -88,7 +88,7 @@ void	rotate_stack(t_head_list *head)
 	head->tail = new_last;
 	decreas_posit_nodes(head);
 	new_last->position = (int)head->size_list - 1;
-	printf("r%c (rotate)\n", head->stack_name);
+	printf("r%c (rotate)\n", head->stack_name); //modificar esto
 }
 
 void	rotate_stack_reverse(t_head_list *head)
@@ -111,5 +111,5 @@ void	rotate_stack_reverse(t_head_list *head)
 	head->header = new_first;
 	increas_posit_nodes(head);
 	new_first->position = 0;
-	printf("r%c (rotate)\n", head->stack_name);
+	printf("rr%c (rotate)\n", head->stack_name); //modificar esto
 }

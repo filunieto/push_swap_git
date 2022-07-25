@@ -6,7 +6,7 @@
 /*   By: fnieves- <fnieves-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/21 13:41:39 by fnieves-          #+#    #+#             */
-/*   Updated: 2022/07/21 18:42:42 by fnieves-         ###   ########.fr       */
+/*   Updated: 2022/07/23 19:34:11 by fnieves-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,8 +48,10 @@ void	print_list(t_head_list *head)
 void	print_node(t_node *node_tocheck)
 {
 	printf("-------Informacion un unico nodo----------\n");
-	if (!node_tocheck->next && !node_tocheck->prev)
-		printf("next y previous no apuntan a anda. Nodo en el vacio\n");
+	if (!node_tocheck->next)
+		printf("next  no apuntan a nada. Ultimo nodo\n");
+	else if (!node_tocheck->prev)
+		printf("previous no apuntan a anda. Primer nodo\n");
 	else
 		printf("next y previous apuntan a algo. El nodo esta enlazado\n");
 	printf("valores de nodo: %i y posicion: %i\n", node_tocheck->number, node_tocheck->position);

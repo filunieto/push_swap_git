@@ -1,7 +1,17 @@
 make --dry-run --always-make --keep-going --print-directory
 make: Entering directory `/Users/fnieves-/Documents/Proyectos/push swap pryct/push_swap_git'
+(cd libft && make)
+(cd libft && make clean)
  
+mkdir obj
+cc -Wall -Werror -Wextra -I libft -I include  -c src/push_swap.c -o obj/push_swap.o
+cc -Wall -Werror -Wextra -I libft -I include  -c src/operations_in_list.c -o obj/operations_in_list.o
+cc -Wall -Werror -Wextra -I libft -I include  -c src/moves_stack.c -o obj/moves_stack.o
+cc -Wall -Werror -Wextra -I libft -I include  -c src/main.c -o obj/main.o
+cc -Wall -Werror -Wextra -I libft -I include  -c src/convert_input_tolist.c -o obj/convert_input_tolist.o
+cc -Wall -Werror -Wextra -I libft -I include  -c src/checking_lists.c -o obj/checking_lists.o
+cc -Wall -Werror -Wextra -I libft -I include  -c src/quick_sort.c -o obj/quick_sort.o
+cc -Wall -Werror -Wextra -I libft -I include  -c src/is_sorted.c -o obj/is_sorted.o
+cc -Wall -Werror -Wextra -o push_swap obj/push_swap.o obj/operations_in_list.o obj/moves_stack.o obj/main.o obj/convert_input_tolist.o obj/checking_lists.o obj/quick_sort.o obj/is_sorted.o -Llibft -lft
 make: Leaving directory `/Users/fnieves-/Documents/Proyectos/push swap pryct/push_swap_git'
  
-Makefile:26: *** commands commence before first target.  Stop.
-

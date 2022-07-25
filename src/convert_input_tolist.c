@@ -6,7 +6,7 @@
 /*   By: fnieves- <fnieves-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/15 12:54:14 by fnieves-          #+#    #+#             */
-/*   Updated: 2022/07/21 18:42:42 by fnieves-         ###   ########.fr       */
+/*   Updated: 2022/07/22 12:00:55 by fnieves-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ void	ft_create_node_addend(t_head_list *head, int value_node, size_t position) /
 	add_node_end(head, new_node);
 }
 
+//en esta funcion hay que meter 3 frees al menos
 void	print_array(t_head_list *head, char **array_words , size_t *position) //cambiar el nombre extract_input_tonode
 {
 	int	i;
@@ -84,4 +85,26 @@ void	extract_inputs_tolist(int argc, char **argv1, t_head_list *head, char **arr
 		print_array(head, array_words, &position_node);
 		i++;
 	}
+}
+
+int	check_doubles(t_head_list *head)
+{
+	t_node	*reference;
+	t_node	*current;
+
+	reference = head->header;
+	while (reference)
+	{
+		current = reference->next;
+		while (current)
+		{
+			if (reference->number == current->number)
+			{
+				return (1);
+			}
+			current = current->next;
+		}
+		reference = reference->next;
+	}
+	return (0);
 }

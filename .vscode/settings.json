@@ -19,5 +19,20 @@
 		"titleBar.inactiveBackground": "#007fff99",
 		"titleBar.inactiveForeground": "#e7e7e799"
 	},
-	"peacock.color": "#007fff"
+	"peacock.color": "#007fff",
+	"files.associations": {
+		"push_swap.h": "c",
+		"__bit_reference": "c",
+		"__hash_table": "c",
+		"__split_buffer": "c",
+		"array": "c",
+		"bitset": "c",
+		"iterator": "c",
+		"initializer_list": "c",
+		"memory": "c",
+		"string": "c",
+		"string_view": "c",
+		"unordered_map": "c",
+		"vector": "c"
+	}
 }

@@ -6,7 +6,7 @@
 /*   By: fnieves- <fnieves-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/15 11:33:44 by fnieves-          #+#    #+#             */
-/*   Updated: 2022/07/21 18:41:35 by fnieves-         ###   ########.fr       */
+/*   Updated: 2022/07/25 15:56:52 by fnieves-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,3 +38,4 @@ void	error_and_free_all(t_head_list *head_a, t_head_list *head_b) //hay qe borra
 	//exit (2);
 }
 
+//void	push_swap.c()
