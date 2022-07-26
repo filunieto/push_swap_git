@@ -6,7 +6,7 @@
 /*   By: fnieves- <fnieves-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/15 11:33:47 by fnieves-          #+#    #+#             */
-/*   Updated: 2022/07/24 13:31:22 by fnieves-         ###   ########.fr       */
+/*   Updated: 2022/07/26 12:42:42 by fnieves-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,13 +27,18 @@ typedef struct s_movements
 }		t_movements;
 
 
-
+/*
+** number = valor
+** position = posicion original
+** index = presorting
+*/
 typedef struct s_node
 {
 	struct s_node	*prev;
 	struct s_node	*next;
 	int		number;
 	int		position;
+	int		index;
 }	t_node;
 
 typedef struct s_head_list
@@ -81,8 +86,13 @@ void	increas_posit_nodes(t_head_list *head);
 void	decreas_posit_nodes(t_head_list *head);
 
 
-/* Algoritmos */
-void	quick_sort(t_head_list *head_a, t_head_list *head_b);
+/* Algoritmos Bubble sort*/
+void	quick_sort(t_head_list *head);
+void	bubble_sort(t_head_list *head_c);
+void 	swap_nodes(t_head_list *head, int position);
+void 	swap_first_node(t_head_list *head);
+
+
 
 
 #endif

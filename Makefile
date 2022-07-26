@@ -6,7 +6,7 @@
 #    By: fnieves- <fnieves-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/15 10:55:21 by fnieves-          #+#    #+#              #
-#    Updated: 2022/07/24 13:34:22 by fnieves-         ###   ########.fr        #
+#    Updated: 2022/07/26 12:42:03 by fnieves-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,14 +21,16 @@ NAME	= push_swap
 # BONUSNAME = push_swap?
 HEADER	= 	include/push_swap.h
 
+#atencion que en uno he puesto carpetas src/ y e otro no. Armonizar
 SRC	= 		push_swap.c \
 			operations_in_list.c \
 			moves_stack.c main.c \
 			main.c \
 			convert_input_tolist.c \
 			checking_lists.c \
-			src/quick_sort.c \
-			src/is_sorted.c \
+			quick_sort.c \
+			is_sorted.c \
+			bubble_sort.c \
 
 # BON 	= main_bonus.c
 

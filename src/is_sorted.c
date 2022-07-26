@@ -6,7 +6,7 @@
 /*   By: fnieves- <fnieves-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/24 13:16:50 by fnieves-          #+#    #+#             */
-/*   Updated: 2022/07/24 13:49:48 by fnieves-         ###   ########.fr       */
+/*   Updated: 2022/07/26 12:52:08 by fnieves-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,6 @@ int	is_sorted(t_head_list *head_a)
 	{
 		if (current->number > current->next->number)
 		{
-			printf("lista desordenada desde el inicio. Podemos seguir trabajando\n");
 			return (0);
 		}
 		current = current->next;

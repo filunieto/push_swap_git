@@ -6,7 +6,7 @@
 /*   By: fnieves- <fnieves-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/21 13:41:39 by fnieves-          #+#    #+#             */
-/*   Updated: 2022/07/23 19:34:11 by fnieves-         ###   ########.fr       */
+/*   Updated: 2022/07/26 11:57:56 by fnieves-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ void	print_list(t_head_list *head)
 	//printf("Imprsion de nodos desde el header hasta el tail\n");
 	while (temp)
 	{
-		printf("elemento %i, valor= %i \n",temp->position, temp->number);
+		printf("elemento %i, valor= %i, index = %i \n",temp->position, temp->number, temp->index);
 		temp = temp->next;
 	}
 	// temp = head->tail;

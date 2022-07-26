@@ -6,7 +6,7 @@
 /*   By: fnieves- <fnieves-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/15 12:54:14 by fnieves-          #+#    #+#             */
-/*   Updated: 2022/07/22 12:00:55 by fnieves-         ###   ########.fr       */
+/*   Updated: 2022/07/25 19:12:06 by fnieves-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ void	ft_create_node_addend(t_head_list *head, int value_node, size_t position) /
 	new_node->position = position;
 	new_node->next = NULL;
 	new_node->prev = NULL;
+	new_node->index = position;
 	if (!head->header)
 	{
 		head->max = new_node->number;
