@@ -6,7 +6,7 @@
 /*   By: fnieves- <fnieves-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/15 11:33:47 by fnieves-          #+#    #+#             */
-/*   Updated: 2022/07/26 12:42:42 by fnieves-         ###   ########.fr       */
+/*   Updated: 2022/07/28 21:17:16 by fnieves-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 //verificar librerias
 # include <stdio.h> //esta fuera 
 # include <string.h>
+# include <limits.h>
 # include <unistd.h>
 # include <stdlib.h>
 # include "../libft/libft.h" 
@@ -25,7 +26,6 @@ typedef struct s_movements
 	int			sa;
 	int			sb;
 }		t_movements;
-
 
 /*
 ** number = valor
@@ -63,6 +63,8 @@ void	print_array(t_head_list *head, char **array_words , size_t *posicion);
 
 void	print_list(t_head_list *head);
 void	print_node(t_node *node_tocheck);
+void	print_stack(t_head_list *head_a, t_head_list *head_b);
+
 
 // verificaciones previas
 int		check_doubles(t_head_list *head);
@@ -86,12 +88,21 @@ void	increas_posit_nodes(t_head_list *head);
 void	decreas_posit_nodes(t_head_list *head);
 
 
-/* Algoritmos Bubble sort*/
-void	quick_sort(t_head_list *head);
+/* Pre Algoritmos Bubble sort*/
 void	bubble_sort(t_head_list *head_c);
-void 	swap_nodes(t_head_list *head, int position);
-void 	swap_first_node(t_head_list *head);
+void	indexing_list(t_head_list *head_a, t_head_list *sorting_copy);
+void	convert_index_bin(t_head_list *head_a);
+int		num_bin(int num);
 
+
+
+
+t_node	*swap_nodes(t_head_list *head, int position);
+t_node	*swap_first_node(t_head_list *head);
+
+/* Algortimos de ordenacion */
+void	algortim_short(t_head_list *head_a, t_head_list *head_b);
+void	sort_three(t_head_list *head_a);
 
 
 

@@ -6,132 +6,85 @@
 /*   By: fnieves- <fnieves-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/25 17:41:03 by fnieves-          #+#    #+#             */
-/*   Updated: 2022/07/26 13:25:14 by fnieves-         ###   ########.fr       */
+/*   Updated: 2022/07/28 21:18:46 by fnieves-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-// void	quick_sort(t_head_list *head)
-// {
-// 	int	*ini;
-// 	int	*fin;
-// 	int	*pivot;
-	
-// 	left = head->header;
-// 	right = head->tail;
-// 	position_pivote = 4; //cambiamos valor variable por lista/2 vemos si impar o par
-// 	pivot = left;
-// 	while (position_pivote--)
-// 	{
-// 		pivot = pivot->next;
-// 	}
-// 	if (left->number >)
-	
-	
-// }
-
-void	bubble_sort(t_head_list *head_c) //recierda actualizar al final head.tail al ultimo elemento
+void	bubble_sort(t_head_list *head_c)
 {
-	int	swap_counter;
-	t_node	*current;
-
-	swap_counter = -1;
-	//current = head_c->header;
-	printf("Lista cuando entra en bubble\n");
-	print_list(head_c);
-	while (swap_counter != 0)
+	int node_ctr;
+	int ctr;
+	int	node_data_copy;
+	t_node	*currentNode;
+	
+	node_ctr = head_c->size_list - 1;
+	while (node_ctr--)
 	{
-		current = head_c->header;
-		swap_counter = 0;
-		while (--head_c->size_list && current->next) //aqui hay que poner la size
+		currentNode = head_c->header;
+		ctr	= 0;
+		while (ctr++ <= node_ctr)
 		{
-			if (current->number > current->next->number)
+			if (currentNode->number > currentNode->next->number)
 			{
-				if (current->position == 0)
-					swap_first_node(head_c);
-				else
-					swap_nodes(head_c, current->position);
-				swap_counter++;
+				node_data_copy = currentNode->number;
+				currentNode->number = currentNode->next->number;
+				currentNode->next->number = node_data_copy;
 			}
-			current = current->next;
+			currentNode = currentNode->next;
 		}
-		printf("valores en buuble sort: swap counter %i, --head_csize: %i", swap_counter, (int) head_c->size_list);
 	}
 }
 
-void 	swap_nodes(t_head_list *head, int position)
+void	indexing_list(t_head_list *head_a, t_head_list *sorting_copy)
 {
-	t_node	*old_first;
-	t_node	*new_first;
-	t_node	*third;
-	t_node	*before_first;
-
-	if (head->size_list < 2) //esto lo puedo borrar poruq e las listas seran mayores de 2 elementos
-		return ;
-	old_first = head->header;
-	while (position > 0)
-	{
-		old_first = old_first->next;
-		position--;
-	}
-	new_first = old_first->next; //poner todo en funcion de old first. Seguir aqui
-	third = new_first->next;
-	before_first = old_first->prev;
-	//cambiamos los indices
-	// old_first->index = new_first->position ; 
-	// new_first->index = old_first->position ; 
-	new_first->position = new_first->position - 1; 
-	old_first->position = old_first->position + 1; 
-	//colocamos los enlaces al old first
-	third->prev = old_first; 
-	old_first->next = third;
-	old_first->prev = new_first;
-	//colocamos los enlaces al new first
-	new_first->next = old_first;
-	new_first->prev = before_first;
-	before_first->next = new_first;
-	// if (counter == 0) //en el caso de que sea el primer nod a intercambiar
-	// {
-	// 	//new_first->prev = old_first->prev;
-	// 	head->header = new_first;
-	// }
-	printf("hemos cambiado  2  elementos no al inicio, y los index\n");
-}
-
-// void	ss(t_head_list *head) //pasar esta funciona move_stack.c
-void 	swap_first_node(t_head_list *head)
-{
-	t_node	*old_first;
-	t_node	*new_first;
-	t_node	*third;
+	t_node	*current_a;
+	t_node	*current_c;
 	
-	// if (head->size_list < 2)
-	// 	return ;
-	old_first = head->header;
-	new_first = old_first->next;
-	third = new_first->next;
-	//cambiamos los indices
-	// old_first->index = new_first->position ; 
-	// new_first->index = old_first->position ; 
-	new_first->position = new_first->position - 1; 
-	old_first->position = old_first->position + 1; 
-	//colocamos los enlaces al old first
-	third->prev = old_first; 
-	old_first->next = third;
-	old_first->prev = new_first;
-	//colocamos los enlaces al new first
-	new_first->next = old_first; 
-	new_first->prev = NULL;  //1
-	head->header = new_first; //2
- //3
-	// if (head->size_list == 2)
-	// {
-	// 	new_first->next = old_first;
-	// 	old_first->next = NULL;
-	// 	head->tail = old_first;
-	// 	return ;
-	// } 
-	printf("hemos cambiado primer por segundo elemento\n");
+	current_a = head_a->header;
+	while (current_a)
+	{
+		current_c = sorting_copy->header;
+		while (current_c && current_a->number != current_c->number)
+		{
+			current_c = current_c->next;
+		}
+		if (current_a->number == current_c->number)
+		{
+			current_a->index = current_c->position;
+		}
+		current_a = current_a->next;
+	}
+	convert_index_bin(head_a);
 }
 
+void	convert_index_bin(t_head_list *head_a)
+{
+	t_node	*current;
+	print_list(head_a);
+	current = head_a->header;
+	while (current)
+	{
+		current->index = num_bin(current->index);
+		current = current->next;
+	}
+	print_list(head_a);
+
+}
+
+int	num_bin(int num)
+{
+	int bin;
+	int	k;
+
+	bin = 0;
+	k = 1;
+	while(num)
+	{
+		bin = bin + (num % 2) * k;
+		k = k * 10;
+		num = num /2;
+	}
+	return (bin);
+}
