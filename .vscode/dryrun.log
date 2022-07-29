@@ -1,6 +1,9 @@
 make --dry-run --keep-going --print-directory
 make: Entering directory `/Users/fnieves-/Documents/Proyectos/push swap pryct/push_swap_git'
-make: `push_swap' is up to date.
+cc -Wall -Werror -Wextra -I libft -I include  -c src/main.c -o obj/main.o
+ 
+cc -Wall -Werror -Wextra -I libft -I include  -c src/algortim_long.c -o obj/algortim_long.o
+cc -Wall -Werror -Wextra -o push_swap obj/push_swap.o obj/operations_in_list.o obj/main.o obj/moves_basic_stack.o obj/convert_input_tolist.o obj/checking_lists.o obj/is_sorted.o obj/bubble_sort.o obj/algortim_short.o obj/search_limits_stack.o obj/algortim_long.o -Llibft -lft
  
 make: Leaving directory `/Users/fnieves-/Documents/Proyectos/push swap pryct/push_swap_git'
  

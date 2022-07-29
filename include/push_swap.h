@@ -6,7 +6,7 @@
 /*   By: fnieves- <fnieves-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/15 11:33:47 by fnieves-          #+#    #+#             */
-/*   Updated: 2022/07/29 12:56:21 by fnieves-         ###   ########.fr       */
+/*   Updated: 2022/07/29 18:24:23 by fnieves-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,7 @@ typedef struct s_head_list
 	int		min;
 	int		posit_min;
 	char	stack_name;
+	int		chunk;
 }	t_head_list;
 
 typedef struct s_stacks
@@ -112,6 +113,9 @@ void	sort_three(t_head_list *head_a);
 void	sort_more_three(t_head_list *head_a, t_head_list *head_b);
 
 /* Algortimos de ordenacion: long */
+void	algortim_long(t_head_list *head_a, t_head_list *head_b);
+void	chunk_calculator(t_head_list *head);
+void	move_min_b(t_head_list *head_a, t_head_list *head_b);
 
 
 

@@ -8,7 +8,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # This program built for i386-apple-darwin11.3.0
  
 
-# Make data base, printed on Thu Jul 28 21:22:12 2022
+# Make data base, printed on Fri Jul 29 18:23:45 2022
 
 # Variables
 
@@ -16,10 +16,10 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 <D = $(patsubst %/,%,$(dir $<))
 # automatic
 ?F = $(notdir $?)
-# makefile (from `Makefile', line 41)
+# makefile (from `Makefile', line 43)
 OBJ = $(addprefix obj/,$(notdir $(SRC:.c=.o))) 
 # makefile (from `Makefile', line 25)
-SRC = push_swap.c operations_in_list.c main.c moves_basic_stack.c convert_input_tolist.c checking_lists.c is_sorted.c bubble_sort.c algortim_short.c 
+SRC = push_swap.c operations_in_list.c main.c moves_basic_stack.c convert_input_tolist.c checking_lists.c is_sorted.c bubble_sort.c algortim_short.c search_limits_stack.c algortim_long.c 
 # automatic
 ?D = $(patsubst %/,%,$(dir $?))
 # automatic
@@ -31,7 +31,7 @@ CURDIR := /Users/fnieves-/Documents/Proyectos/push swap pryct/push_swap_git
 # makefile
 SHELL = /bin/sh
 # environment
-VSCODE_NLS_CONFIG = {"locale":"en-gb","availableLanguages":{},"_languagePackSupport":true}
+VSCODE_NLS_CONFIG = {"locale":"en-us","availableLanguages":{},"_languagePackSupport":true}
 # environment
 _ = /usr/bin/make
 # makefile (from `Makefile', line 1)
@@ -39,19 +39,17 @@ MAKEFILE_LIST :=  Makefile
 # environment
 VSCODE_CWD = /
 # environment
-PATH = /Users/fnieves-/.brew/bin:/Users/fnieves-/.brew/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/munki
+PATH = /Users/fnieves-/.brew/bin:/Users/fnieves-/.brew/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/munki:/Library/Apple/usr/bin
 # environment
 LSCOLORS = Gxfxcxdxbxegedabagacad
 # makefile (from `Makefile', line 13)
 VPATH = src 
 # environment
-LaunchInstanceID = 87A8D060-D3F6-4E1A-8E3C-07E8B6706E8C
-# environment
 ELECTRON_RUN_AS_NODE = 1
 # default
 .FEATURES := target-specific order-only second-expansion else-if archives jobserver check-symlink
 # environment
-SSH_AUTH_SOCK = /private/tmp/com.apple.launchd.kEJ9jEuKvn/Listeners
+SSH_AUTH_SOCK = /private/tmp/com.apple.launchd.FppOHAp3zn/Listeners
 # automatic
 %F = $(notdir $%)
 # environment
@@ -119,15 +117,13 @@ MFLAGS = -Rrqp
 # automatic
 *D = $(patsubst %/,%,$(dir $*))
 # environment
-XPC_SERVICE_NAME = com.apple.xpc.launchd.oneshot.0x10000002.Electron
+XPC_SERVICE_NAME = com.microsoft.VSCode.2156
 # automatic
 +D = $(patsubst %/,%,$(dir $+))
 # automatic
 +F = $(notdir $+)
 # environment
 __CF_USER_TEXT_ENCODING = 0x18CA5:0x0:0x0
-# environment
-COMMAND_MODE = unix2003
 # default
 MAKEFILES := 
 # automatic
@@ -138,10 +134,8 @@ PAGER = less
 LC_ALL = C
 # makefile (from `Makefile', line 22)
 HEADER = include/push_swap.h
-# makefile (from `Makefile', line 40)
+# makefile (from `Makefile', line 42)
 LIBS = libft/libft.a 	
-# environment
-SECURITYSESSIONID = 186a7
 # automatic
 ^F = $(notdir $^)
 # default
@@ -155,9 +149,10 @@ MAKELEVEL := 0
 # environment
 LANG = C
 # environment
-VSCODE_PID = 797
+VSCODE_PID = 4410
 # variable set hash-table stats:
-# Load=72/1024=7%, Rehash=0, Collisions=5/104=5%
+ 
+# Load=69/1024=7%, Rehash=0, Collisions=7/106=7%
 
 # Pattern-specific Variable Values
 
@@ -166,16 +161,16 @@ VSCODE_PID = 797
 # Directories
 
 # include (device 16777225, inode 1926255): 3 files, no impossibilities so far.
-# . (device 16777225, inode 1799082): 14 files, no impossibilities.
+# . (device 16777225, inode 1799082): 16 files, no impossibilities.
 # src (device 16777225, inode 1926278): 13 files, no impossibilities so far.
 # libft (device 16777225, inode 1936146): No files, no impossibilities so far.
 
-# 30 files, no impossibilities in 4 directories.
+# 32 files, no impossibilities in 4 directories.
 
 # Implicit Rules
 
 obj/%.o: %.c libft/libft.a 	 include/push_swap.h | obj
-#  commands to execute (from `Makefile', line 49):
+#  commands to execute (from `Makefile', line 51):
 	$(CC) $(FLAGS) $(INCFLAGS) -c $< -o $@
 	
 
@@ -183,29 +178,23 @@ obj/%.o: %.c libft/libft.a 	 include/push_swap.h | obj
 
 # Files
 
-obj/is_sorted.o: src/is_sorted.c libft/libft.a include/push_swap.h | obj
-#  Implicit rule search has been done.
-#  Implicit/static pattern stem: `is_sorted'
-#  Last modified 2022-07-28 21:18:49
-#  File has been updated.
-#  Successfully updated.
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
-#  commands to execute (from `Makefile', line 49):
-	$(CC) $(FLAGS) $(INCFLAGS) -c $< -o $@
-	
+# Not a target:
+obj/is_sorted.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
-obj/algortim_short.o: src/algortim_short.c libft/libft.a include/push_swap.h | obj
-#  Implicit rule search has been done.
-#  Implicit/static pattern stem: `algortim_short'
-#  Last modified 2022-07-28 21:18:50
-#  File has been updated.
-#  Successfully updated.
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
-#  commands to execute (from `Makefile', line 49):
-	$(CC) $(FLAGS) $(INCFLAGS) -c $< -o $@
-	
+# Not a target:
+obj/algortim_short.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+obj/algortim_long.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 all: push_swap
 #  Phony target (prerequisite of .PHONY).
@@ -213,21 +202,15 @@ all: push_swap
 #  Implicit rule search has not been done.
 #  File does not exist.
 #  File has been updated.
-#  Successfully updated.
+#  Needs to be updated (-q is set).
 # variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+# Load=0/32=0%, Rehash=0, Collisions=0/5=0%
 
-obj/moves_basic_stack.o: src/moves_basic_stack.c libft/libft.a include/push_swap.h | obj
-#  Implicit rule search has been done.
-#  Implicit/static pattern stem: `moves_basic_stack'
-#  Last modified 2022-07-28 21:18:49
-#  File has been updated.
-#  Successfully updated.
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
-#  commands to execute (from `Makefile', line 49):
-	$(CC) $(FLAGS) $(INCFLAGS) -c $< -o $@
-	
+# Not a target:
+obj/moves_basic_stack.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 .PHONY: all clean fclean re bonus
 #  Implicit rule search has not been done.
@@ -237,45 +220,52 @@ obj/moves_basic_stack.o: src/moves_basic_stack.c libft/libft.a include/push_swap
 obj/push_swap.o: src/push_swap.c libft/libft.a include/push_swap.h | obj
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: `push_swap'
-#  Last modified 2022-07-28 21:17:22
+#  Last modified 2022-07-29 17:49:52
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
 # Load=0/32=0%, Rehash=0, Collisions=0/0=0%
-#  commands to execute (from `Makefile', line 49):
+#  commands to execute (from `Makefile', line 51):
 	$(CC) $(FLAGS) $(INCFLAGS) -c $< -o $@
 	
-
-# Not a target:
-src/bubble_sort.c:
-#  Implicit rule search has been done.
-#  Last modified 2022-07-28 21:18:46
-#  File has been updated.
-#  Successfully updated.
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
 
 obj/main.o: src/main.c libft/libft.a include/push_swap.h | obj
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: `main'
-#  Last modified 2022-07-28 21:18:49
+#  Last modified 2022-07-29 17:50:28
 #  File has been updated.
-#  Successfully updated.
+#  Needs to be updated (-q is set).
+# automatic
+# @ := obj/main.o
+# automatic
+# % := 
+# automatic
+# * := main
+# automatic
+# + := src/main.c libft/libft.a include/push_swap.h
+# automatic
+# | := obj
+# automatic
+# < := src/main.c
+# automatic
+# ^ := src/main.c libft/libft.a include/push_swap.h
+# automatic
+# ? := src/main.c
 # variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
-#  commands to execute (from `Makefile', line 49):
+# Load=8/32=25%, Rehash=0, Collisions=1/15=7%
+#  commands to execute (from `Makefile', line 51):
 	$(CC) $(FLAGS) $(INCFLAGS) -c $< -o $@
 	
 
 obj/operations_in_list.o: src/operations_in_list.c libft/libft.a include/push_swap.h | obj
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: `operations_in_list'
-#  Last modified 2022-07-28 21:17:22
+#  Last modified 2022-07-29 17:49:52
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
 # Load=0/32=0%, Rehash=0, Collisions=0/0=0%
-#  commands to execute (from `Makefile', line 49):
+#  commands to execute (from `Makefile', line 51):
 	$(CC) $(FLAGS) $(INCFLAGS) -c $< -o $@
 	
 
@@ -286,19 +276,9 @@ obj/operations_in_list.o: src/operations_in_list.c libft/libft.a include/push_sw
 #  File has not been updated.
 
 # Not a target:
-src/is_sorted.c:
-#  Implicit rule search has been done.
-#  Last modified 2022-07-26 12:52:08
-#  File has been updated.
-#  Successfully updated.
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
-
-# Not a target:
 Makefile:
- 
 #  Implicit rule search has been done.
-#  Last modified 2022-07-28 21:20:17
+#  Last modified 2022-07-29 18:23:12
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -310,29 +290,17 @@ libs: fclean all
 #  File has not been updated.
 
 # Not a target:
-src/algortim_short.c:
-#  Implicit rule search has been done.
-#  Last modified 2022-07-28 13:56:26
-#  File has been updated.
-#  Successfully updated.
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
-
-# Not a target:
-src/moves_basic_stack.c:
-#  Implicit rule search has been done.
-#  Last modified 2022-07-28 13:29:53
-#  File has been updated.
-#  Successfully updated.
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+obj/search_limits_stack.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 libft/libft.a:
 #  Implicit rule search has not been done.
 #  Last modified 2022-07-22 12:00:12
 #  File has been updated.
 #  Successfully updated.
-#  commands to execute (from `Makefile', line 57):
+#  commands to execute (from `Makefile', line 59):
 	-(cd libft && make)
 	-(cd libft && make clean)
 	
@@ -340,7 +308,7 @@ libft/libft.a:
 # Not a target:
 include/push_swap.h:
 #  Implicit rule search has been done.
-#  Last modified 2022-07-28 21:17:16
+#  Last modified 2022-07-29 17:38:48
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -349,7 +317,7 @@ include/push_swap.h:
 # Not a target:
 src/push_swap.c:
 #  Implicit rule search has been done.
-#  Last modified 2022-07-25 19:00:44
+#  Last modified 2022-07-29 17:39:04
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -361,24 +329,18 @@ bonus:
 #  File does not exist.
 #  File has not been updated.
 
-obj/checking_lists.o: src/checking_lists.c libft/libft.a include/push_swap.h | obj
-#  Implicit rule search has been done.
-#  Implicit/static pattern stem: `checking_lists'
-#  Last modified 2022-07-28 21:18:49
-#  File has been updated.
-#  Successfully updated.
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
-#  commands to execute (from `Makefile', line 49):
-	$(CC) $(FLAGS) $(INCFLAGS) -c $< -o $@
-	
+# Not a target:
+obj/checking_lists.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 fclean: clean
 #  Phony target (prerequisite of .PHONY).
 #  Implicit rule search has not been done.
 #  File does not exist.
 #  File has not been updated.
-#  commands to execute (from `Makefile', line 70):
+#  commands to execute (from `Makefile', line 72):
 	rm -f $(NAME)
 	-(cd libft && make fclean)
 	
@@ -386,7 +348,7 @@ fclean: clean
 # Not a target:
 src/main.c:
 #  Implicit rule search has been done.
-#  Last modified 2022-07-28 21:17:59
+#  Last modified 2022-07-29 18:00:08
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -403,10 +365,10 @@ src/operations_in_list.c:
 
 obj:
 #  Implicit rule search has not been done.
-#  Last modified 2022-07-28 21:18:50
+#  Last modified 2022-07-29 17:50:28
 #  File has been updated.
 #  Successfully updated.
-#  commands to execute (from `Makefile', line 52):
+#  commands to execute (from `Makefile', line 54):
 	mkdir obj
 	
 
@@ -427,65 +389,35 @@ clean:
 #  Implicit rule search has not been done.
 #  File does not exist.
 #  File has not been updated.
-#  commands to execute (from `Makefile', line 66):
+#  commands to execute (from `Makefile', line 68):
 	rm -rf obj
 	
 
-obj/convert_input_tolist.o: src/convert_input_tolist.c libft/libft.a include/push_swap.h | obj
-#  Implicit rule search has been done.
-#  Implicit/static pattern stem: `convert_input_tolist'
-#  Last modified 2022-07-28 21:18:49
-#  File has been updated.
-#  Successfully updated.
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
-#  commands to execute (from `Makefile', line 49):
-	$(CC) $(FLAGS) $(INCFLAGS) -c $< -o $@
-	
-
-push_swap: obj/push_swap.o obj/operations_in_list.o obj/main.o obj/moves_basic_stack.o obj/convert_input_tolist.o obj/checking_lists.o obj/is_sorted.o obj/bubble_sort.o obj/algortim_short.o | libft/libft.a
+# Not a target:
+obj/convert_input_tolist.o:
 #  Implicit rule search has not been done.
-#  Last modified 2022-07-28 21:18:50
+#  Modification time never checked.
+#  File has not been updated.
+
+push_swap: obj/push_swap.o obj/operations_in_list.o obj/main.o obj/moves_basic_stack.o obj/convert_input_tolist.o obj/checking_lists.o obj/is_sorted.o obj/bubble_sort.o obj/algortim_short.o obj/search_limits_stack.o obj/algortim_long.o | libft/libft.a
+#  Implicit rule search has not been done.
+#  Last modified 2022-07-29 17:50:29
 #  File has been updated.
-#  Successfully updated.
+#  Needs to be updated (-q is set).
 # variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
-#  commands to execute (from `Makefile', line 46):
+# Load=0/32=0%, Rehash=0, Collisions=0/5=0%
+#  commands to execute (from `Makefile', line 48):
 	$(CC) $(FLAGS) -o $@ $^ -Llibft -lft
 	
 
 # Not a target:
-src/checking_lists.c:
-#  Implicit rule search has been done.
-#  Last modified 2022-07-28 11:36:57
-#  File has been updated.
-#  Successfully updated.
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
-
-# Not a target:
-src/convert_input_tolist.c:
-#  Implicit rule search has been done.
-#  Last modified 2022-07-25 19:12:06
-#  File has been updated.
-#  Successfully updated.
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
-
-obj/bubble_sort.o: src/bubble_sort.c libft/libft.a include/push_swap.h | obj
-#  Implicit rule search has been done.
-#  Implicit/static pattern stem: `bubble_sort'
-#  Last modified 2022-07-28 21:18:50
-#  File has been updated.
-#  Successfully updated.
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
-#  commands to execute (from `Makefile', line 49):
-	$(CC) $(FLAGS) $(INCFLAGS) -c $< -o $@
-	
+obj/bubble_sort.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 # files hash-table stats:
-# Load=32/1024=3%, Rehash=0, Collisions=0/201=0%
+# Load=28/1024=3%, Rehash=0, Collisions=0/109=0%
 # VPATH Search Paths
 
 # No `vpath' search paths.
@@ -498,6 +430,6 @@ obj/bubble_sort.o: src/bubble_sort.c libft/libft.a include/push_swap.h | obj
 # strcache size: total = 4096 / max = 4096 / min = 4096 / avg = 4096
 # strcache free: total = 4087 / max = 4087 / min = 4087 / avg = 4087
 
-# Finished Make data base on Thu Jul 28 21:22:12 2022
+# Finished Make data base on Fri Jul 29 18:23:45 2022
 
  

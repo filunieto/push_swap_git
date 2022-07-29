@@ -6,7 +6,7 @@
 /*   By: fnieves- <fnieves-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/21 13:33:42 by fnieves-          #+#    #+#             */
-/*   Updated: 2022/07/29 13:14:24 by fnieves-         ###   ########.fr       */
+/*   Updated: 2022/07/29 18:27:30 by fnieves-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,22 +45,17 @@ int	main(int argc, char **argv)
 		exit (4);
 	//print_list(&head_a);
 	//creamos la lista c en al que amos a hacer un presorting
-	//print_stack(&head_a, &head_b);
+	print_stack(&head_a, &head_b);
 	extract_inputs_tolist(argc - 1, &argv[1], &sorting_copy, array_words);
 	bubble_sort(&sorting_copy);
 	indexing_list(&head_a, &sorting_copy);
 	//print_list(&head_a);
 	if (head_a.size_list <= 5)
 		algortim_short(&head_a, &head_b);
-	// else
-	// 	algortim_long(&head_a, &head_b);
-	// print_list(&head_a);
-	// print_list(&head_b);
+	else
+		algortim_long(&head_a, &head_b);
 	//print_stack(&head_a, &head_b);
 
-	//else: Si tenemos mas de 5 elementos
-
-	// algortim_long(&head_a, &head_b);
-	
 	return (2);
+	
 }
