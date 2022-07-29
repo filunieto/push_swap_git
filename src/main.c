@@ -6,7 +6,7 @@
 /*   By: fnieves- <fnieves-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/21 13:33:42 by fnieves-          #+#    #+#             */
-/*   Updated: 2022/07/28 21:17:59 by fnieves-         ###   ########.fr       */
+/*   Updated: 2022/07/29 11:59:52 by fnieves-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ int	main(int argc, char **argv)
 	// 	algortim_long(&head_a, &head_b);
 	// print_list(&head_a);
 	// print_list(&head_b);
-	//print_list(&head_a);
+	print_list(&head_a);
 	//print_stack(&head_a, &head_b);
 
 	//else: Si tenemos mas de 5 elementos

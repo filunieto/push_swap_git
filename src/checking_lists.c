@@ -6,7 +6,7 @@
 /*   By: fnieves- <fnieves-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/21 13:41:39 by fnieves-          #+#    #+#             */
-/*   Updated: 2022/07/28 11:36:57 by fnieves-         ###   ########.fr       */
+/*   Updated: 2022/07/29 11:44:59 by fnieves-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,8 @@ void	print_list(t_head_list *head)
 	}
 	temp = head->header;
 	printf("-------Informacion de La lista %c----------\n", head->stack_name);
-	printf("elementos de la lista: %i, max = %i y min = %i \n", (int)head->size_list, head->max, head->min);
+	printf("elementos de la lista: %i, \n", (int)head->size_list);
+	printf("En valores indexados: \nValor de max: %i, Posicion de  max = %i.\n Valor de min: %i, Posicion de min = %i \n", head->max, head->posit_max, head->min, head->posit_min);
 	//printf("Imprsion de nodos desde el header hasta el tail\n");
 	while (temp)
 	{

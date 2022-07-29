@@ -6,7 +6,7 @@
 /*   By: fnieves- <fnieves-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/15 11:33:47 by fnieves-          #+#    #+#             */
-/*   Updated: 2022/07/28 21:17:16 by fnieves-         ###   ########.fr       */
+/*   Updated: 2022/07/29 12:05:19 by fnieves-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,9 @@ typedef struct s_head_list
 	t_node	*tail;
 	size_t	size_list;
 	int		max;
+	int		posit_max;
 	int		min;
+	int		posit_min;
 	char	stack_name;
 }	t_head_list;
 
@@ -94,6 +96,10 @@ void	indexing_list(t_head_list *head_a, t_head_list *sorting_copy);
 void	convert_index_bin(t_head_list *head_a);
 int		num_bin(int num);
 
+
+/* Operacion en stack para algorotmos*/
+void	search_max_stack(t_head_list *head);
+void	search_min_stack(t_head_list *head);
 
 
 

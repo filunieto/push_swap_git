@@ -6,7 +6,7 @@
 /*   By: fnieves- <fnieves-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/25 17:41:03 by fnieves-          #+#    #+#             */
-/*   Updated: 2022/07/28 21:18:46 by fnieves-         ###   ########.fr       */
+/*   Updated: 2022/07/29 12:19:06 by fnieves-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,9 @@ void	indexing_list(t_head_list *head_a, t_head_list *sorting_copy)
 		}
 		current_a = current_a->next;
 	}
-	convert_index_bin(head_a);
+	search_max_stack(head_a);
+	search_min_stack(head_a);
+	//convert_index_bin(head_a); esto no me va a hacer falta
 }
 
 void	convert_index_bin(t_head_list *head_a)

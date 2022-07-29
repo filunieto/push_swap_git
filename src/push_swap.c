@@ -6,7 +6,7 @@
 /*   By: fnieves- <fnieves-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/15 11:33:44 by fnieves-          #+#    #+#             */
-/*   Updated: 2022/07/25 19:00:44 by fnieves-         ###   ########.fr       */
+/*   Updated: 2022/07/29 11:20:25 by fnieves-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,9 @@ void	initialize_list(t_head_list *head, char stack_name)
 	head->header = NULL;
 	head->tail = NULL;
 	head->max = 0;
+	head->posit_max = 0;
 	head->min = 0;
+	head->posit_min = 0;
 	head->size_list = 0;
 	head->stack_name = stack_name;
 }
