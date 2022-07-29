@@ -6,7 +6,7 @@
 /*   By: fnieves- <fnieves-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/15 11:33:47 by fnieves-          #+#    #+#             */
-/*   Updated: 2022/07/29 12:05:19 by fnieves-         ###   ########.fr       */
+/*   Updated: 2022/07/29 12:56:21 by fnieves-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,9 +106,12 @@ void	search_min_stack(t_head_list *head);
 t_node	*swap_nodes(t_head_list *head, int position);
 t_node	*swap_first_node(t_head_list *head);
 
-/* Algortimos de ordenacion */
+/* Algortimos de ordenacion: short */
 void	algortim_short(t_head_list *head_a, t_head_list *head_b);
 void	sort_three(t_head_list *head_a);
+void	sort_more_three(t_head_list *head_a, t_head_list *head_b);
+
+/* Algortimos de ordenacion: long */
 
 
 

@@ -6,7 +6,7 @@
 /*   By: fnieves- <fnieves-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/23 18:53:19 by fnieves-          #+#    #+#             */
-/*   Updated: 2022/07/28 21:22:45 by fnieves-         ###   ########.fr       */
+/*   Updated: 2022/07/29 13:32:47 by fnieves-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,26 +14,13 @@
 
 void	algortim_short(t_head_list *head_a, t_head_list *head_b)
 {
-	int	i;
-
-
-	i = head_a->size_list;
 	if (head_a->size_list == 2)
-	{
-		printf("2 elementos en algoritmo short. Hacemo algo y pafuera\n");
-		return ;
-	}
-
-	if (head_a->size_list > 3)
-	{
-		while (i > 3)
-		{
-			push_topushed(head_a, head_b);
-			i--;
-		}
-	}
-	//falta ordenar 2, 4 y 5 elementos
-	sort_three(head_a);
+		swap_one(head_a);
+	else if (head_a->size_list == 3)
+		sort_three(head_a);
+	else if (head_a->size_list > 3)
+		sort_more_three(head_a, head_b);
+	print_stack(head_a, head_b);
 }
 
 
@@ -62,4 +49,34 @@ void	sort_three(t_head_list *head_a)
 	}
 	else // if (top < middle && top < bottom && middle > bottom) . borrar si no da problemas
 		rotate_stack_reverse(head_a);
+}
+ /* 
+** Pasamos a la pila b el maximo de a, hasta que nos queden 3 elementos en a
+** una vez ordenemos a, vamos pasando los maximos y rotando
+** igual podemos mejorar la eficiencia si calculamos. no parece que mejore
+ */
+void	sort_more_three(t_head_list *head_a, t_head_list *head_b)
+{
+	int	i;
+	int	j;
+
+	i = head_a->size_list;
+	while (i-- > 3)
+	{
+		if (head_a->posit_max > (int) head_a->size_list / 2)
+			while (head_a->posit_max++ < (int)head_a->size_list)
+				rotate_stack_reverse(head_a);
+		else
+			while (head_a->posit_max--)
+				rotate_stack(head_a);
+		push_topushed(head_a, head_b);
+		search_max_stack(head_a);
+	}
+	sort_three(head_a);
+	j = head_b->size_list;
+	while (j--)
+	{
+		push_topushed(head_b, head_a);
+		rotate_stack(head_a);
+	}
 }
