@@ -6,7 +6,7 @@
 /*   By: fnieves- <fnieves-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/21 13:33:42 by fnieves-          #+#    #+#             */
-/*   Updated: 2022/07/29 18:27:30 by fnieves-         ###   ########.fr       */
+/*   Updated: 2022/07/31 17:52:09 by fnieves-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,6 @@ int	main(int argc, char **argv)
 		exit (4);
 	//print_list(&head_a);
 	//creamos la lista c en al que amos a hacer un presorting
-	print_stack(&head_a, &head_b);
 	extract_inputs_tolist(argc - 1, &argv[1], &sorting_copy, array_words);
 	bubble_sort(&sorting_copy);
 	indexing_list(&head_a, &sorting_copy);

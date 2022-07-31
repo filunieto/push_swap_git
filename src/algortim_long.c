@@ -6,7 +6,7 @@
 /*   By: fnieves- <fnieves-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/23 18:53:19 by fnieves-          #+#    #+#             */
-/*   Updated: 2022/07/29 19:05:24 by fnieves-         ###   ########.fr       */
+/*   Updated: 2022/07/31 18:22:46 by fnieves-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,23 @@ void	chunk_calculator(t_head_list *head)
 
 void	algortim_long(t_head_list *head_a, t_head_list *head_b)
 {
+	int	sizeList;
+
+	sizeList = 100;
+	print_stack(head_a, head_b);
 	chunk_calculator(head_a);
-	move_min_b(head_a, head_b);
+	while (sizeList > 3)
+	{
+		move_min_b(head_a, head_b);
+		sizeList = head_a->size_list;
+	}
+	sort_three(head_a);
+	//sizeList = head_b->size_list;
+	while ( head_b->size_list)
+	{
+		push_topushed(head_b, head_a);
+	}
+	print_stack(head_a, head_b);
 }
 
 /*
@@ -45,7 +60,7 @@ void	move_min_b(t_head_list *head_a, t_head_list *head_b)
 	//t_node	*current;
 	
 	fin	= head_a->chunk;
-	while (fin--)
+	while (fin-- && head_a->size_list > 3)
 	{
 		//ini	= head_a->min;
 		if (head_a->posit_min > (int) head_a->size_list / 2)

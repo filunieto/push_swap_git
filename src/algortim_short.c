@@ -6,7 +6,7 @@
 /*   By: fnieves- <fnieves-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/23 18:53:19 by fnieves-          #+#    #+#             */
-/*   Updated: 2022/07/29 13:32:47 by fnieves-         ###   ########.fr       */
+/*   Updated: 2022/07/31 17:42:52 by fnieves-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,6 @@ void	algortim_short(t_head_list *head_a, t_head_list *head_b)
 	print_stack(head_a, head_b);
 }
 
-
 void	sort_three(t_head_list *head_a)
 {
 	int	top;
@@ -33,23 +32,25 @@ void	sort_three(t_head_list *head_a)
 	top = head_a->header->number;
 	middle  = head_a->header->next->number;
 	bottom = head_a->header->next->next->number;
-	if (top > middle && top < bottom && middle < bottom)
+	//printf("top %i, middel, %i, bottom %i\n", top, middle, bottom);
+	if (top > middle && top < bottom && middle < bottom) // caso 1
 		swap_one(head_a);
-	else if (top > middle && top > bottom && middle > bottom)
+	else if (top > middle && top > bottom && middle > bottom) //caso 2
 	{
 		swap_one(head_a);
 		rotate_stack_reverse(head_a);
 	}
-	else if (top > middle && top > bottom && middle < bottom)
+	else if (top > middle && top > bottom && middle < bottom) //caso 3
 		rotate_stack(head_a);
-	else if (top < middle && top < bottom && middle > bottom)
+	else if (top < middle && top < bottom && middle > bottom) //caso 4
 	{
 		swap_one(head_a);
 		rotate_stack(head_a);
 	}
-	else // if (top < middle && top < bottom && middle > bottom) . borrar si no da problemas
+	else if (top < middle && top > bottom && middle > bottom) // if (top < middle && top < bottom && middle > bottom) . borrar si no da problemas
 		rotate_stack_reverse(head_a);
 }
+
  /* 
 ** Pasamos a la pila b el maximo de a, hasta que nos queden 3 elementos en a
 ** una vez ordenemos a, vamos pasando los maximos y rotando
