@@ -6,7 +6,7 @@
 /*   By: fnieves- <fnieves-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/25 17:41:03 by fnieves-          #+#    #+#             */
-/*   Updated: 2022/07/29 12:19:06 by fnieves-         ###   ########.fr       */
+/*   Updated: 2022/07/31 18:41:52 by fnieves-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,10 +58,11 @@ void	indexing_list(t_head_list *head_a, t_head_list *sorting_copy)
 	}
 	search_max_stack(head_a);
 	search_min_stack(head_a);
-	//convert_index_bin(head_a); esto no me va a hacer falta
+	// hacer un free a la lista sorting_copy( hacerlo solo esta vez)
+	
 }
 
-void	convert_index_bin(t_head_list *head_a)
+void	convert_index_bin(t_head_list *head_a) //esta funcion no es necesaria
 {
 	t_node	*current;
 	print_list(head_a);

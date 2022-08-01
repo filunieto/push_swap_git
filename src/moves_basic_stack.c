@@ -6,7 +6,7 @@
 /*   By: fnieves- <fnieves-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/19 16:58:59 by fnieves-          #+#    #+#             */
-/*   Updated: 2022/07/28 21:23:25 by fnieves-         ###   ########.fr       */
+/*   Updated: 2022/08/01 12:58:13 by fnieves-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,7 @@ void	push_topushed(t_head_list *head_pusher, t_head_list *head_pushed)  //pasar 
 		decreas_posit_nodes(head_pusher);
 	}
 	add_node_begginig(head_pushed, pusher);
+	update_min_max(head_pushed, head_pusher);
 	printf("p%c\n", head_pushed->stack_name);
 }
 
@@ -112,4 +113,12 @@ void	rotate_stack_reverse(t_head_list *head)
 	increas_posit_nodes(head);
 	new_first->position = 0;
 	printf("rr%c\n", head->stack_name);
+}
+
+void	update_min_max(t_head_list *head_a, t_head_list *head_b)
+{
+	search_max_stack(head_a);
+	search_max_stack(head_b);
+	search_min_stack(head_a);
+	search_min_stack(head_b);
 }

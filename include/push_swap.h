@@ -6,7 +6,7 @@
 /*   By: fnieves- <fnieves-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/15 11:33:47 by fnieves-          #+#    #+#             */
-/*   Updated: 2022/07/29 18:24:23 by fnieves-         ###   ########.fr       */
+/*   Updated: 2022/08/01 12:59:02 by fnieves-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,6 +85,7 @@ void	rotate_stack(t_head_list *head);
 void	rotate_stack_reverse(t_head_list *head);
 
 
+
 void	add_node_begginig(t_head_list *head, t_node *new_node);
 void	add_node_end(t_head_list *head, t_node *new_node);
 void	increas_posit_nodes(t_head_list *head);
@@ -101,6 +102,7 @@ int		num_bin(int num);
 /* Operacion en stack para algorotmos*/
 void	search_max_stack(t_head_list *head);
 void	search_min_stack(t_head_list *head);
+void	update_min_max(t_head_list *head_a, t_head_list *head_b);
 
 
 
@@ -116,6 +118,16 @@ void	sort_more_three(t_head_list *head_a, t_head_list *head_b);
 void	algortim_long(t_head_list *head_a, t_head_list *head_b);
 void	chunk_calculator(t_head_list *head);
 void	move_min_b(t_head_list *head_a, t_head_list *head_b);
+
+int	find_chunk_from_top(t_head_list *head_a);
+int	find_chunk_from_bottom(t_head_list *head_a);
+void	move_top(t_head_list *head, int position);
+void	move_bottom(t_head_list *head, int position);
+
+void	move_max(t_head_list *head_b, t_head_list *head_a);
+
+
+
 
 
 

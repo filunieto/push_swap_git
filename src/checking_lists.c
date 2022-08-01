@@ -6,7 +6,7 @@
 /*   By: fnieves- <fnieves-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/21 13:41:39 by fnieves-          #+#    #+#             */
-/*   Updated: 2022/07/29 11:44:59 by fnieves-         ###   ########.fr       */
+/*   Updated: 2022/08/01 11:47:26 by fnieves-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ void	print_node(t_node *node_tocheck)
 		printf("previous no apuntan a anda. Primer nodo\n");
 	else
 		printf("next y previous apuntan a algo. El nodo esta enlazado\n");
-	printf("valores de nodo: %i y posicion: %i\n", node_tocheck->number, node_tocheck->position);
+	printf("valores inicial: %i , index (%i) y posicion: %i\n", node_tocheck->number, node_tocheck->index , node_tocheck->position);
 	printf("-------FIN DE IMPRESION de unico nodo-------\n");
 }
 

@@ -6,7 +6,7 @@
 /*   By: fnieves- <fnieves-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/23 18:53:19 by fnieves-          #+#    #+#             */
-/*   Updated: 2022/07/31 17:42:52 by fnieves-         ###   ########.fr       */
+/*   Updated: 2022/08/01 00:01:54 by fnieves-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	algortim_short(t_head_list *head_a, t_head_list *head_b)
 		sort_three(head_a);
 	else if (head_a->size_list > 3)
 		sort_more_three(head_a, head_b);
-	print_stack(head_a, head_b);
+	//print_stack(head_a, head_b);
 }
 
 void	sort_three(t_head_list *head_a)
