@@ -6,7 +6,7 @@
 /*   By: fnieves- <fnieves-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/15 11:33:47 by fnieves-          #+#    #+#             */
-/*   Updated: 2022/08/01 12:59:02 by fnieves-         ###   ########.fr       */
+/*   Updated: 2022/08/01 15:33:38 by fnieves-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -117,7 +117,7 @@ void	sort_more_three(t_head_list *head_a, t_head_list *head_b);
 /* Algortimos de ordenacion: long */
 void	algortim_long(t_head_list *head_a, t_head_list *head_b);
 void	chunk_calculator(t_head_list *head);
-void	move_min_b(t_head_list *head_a, t_head_list *head_b);
+void	move_min(t_head_list *head_a, t_head_list *head_b, int count_chunk);
 
 int	find_chunk_from_top(t_head_list *head_a);
 int	find_chunk_from_bottom(t_head_list *head_a);

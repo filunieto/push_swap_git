@@ -6,7 +6,7 @@
 /*   By: fnieves- <fnieves-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/23 18:53:19 by fnieves-          #+#    #+#             */
-/*   Updated: 2022/08/01 13:58:10 by fnieves-         ###   ########.fr       */
+/*   Updated: 2022/08/02 15:35:27 by fnieves-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,21 +29,72 @@ void	chunk_calculator(t_head_list *head)
 	//printf("1. valor de chunk: %i\n", head->chunk);
 }
 
+void	move_min(t_head_list *head_a, t_head_list *head_b, int count_chunk)
+{
+	int	fin;
+	int ini;
+	
+	ini	= head_a->chunk * count_chunk; //cada vez que entre el bucle while los limites del chunk tienen que pasar al siguiente intervalo
+	if (head_a->chunk * (count_chunk + 1) > (int)head_a->size_list) //cuando crea el intervalo y para el ultimo chunk, no debe rebasar el numero maximo de elementos en la lista
+		fin	= head_a->chunk * (count_chunk) + (int)head_a->size_list - 1;
+	else	
+		fin	= head_a->chunk * (count_chunk + 1) - 1;
+	while (head_a->min < fin && head_a->size_list > 3)
+	{
+		if (head_a->posit_min < (int)head_a->size_list / 2) //possicion de minimo en 1a mitad
+		{
+			while (head_a->posit_min && head_a->size_list > 4)
+			{
+				if (head_a->header->index < fin)
+				{
+					push_topushed(head_a, head_b);
+					rotate_stack(head_b);
+				}
+				rotate_stack(head_a);
+			}
+		}
+		else
+		{
+			while(head_a->posit_min < (int)head_a->size_list && head_a->size_list > 4)
+			{
+				if (head_a->header->index < fin)
+				{
+					push_topushed(head_a, head_b);
+					rotate_stack(head_b);
+				}
+				rotate_stack_reverse(head_a);
+			}
+		}
+		push_topushed(head_a, head_b);
+	}
+	// printf("3 index minimo (%i) esta en posicion %i: ini = %i y fin : %i\n", head_a->min, head_a->posit_min, ini, fin);
+	// printf("tamano de la lista a %i\n",(int) head_a->size_list);
+	//print_stack(head_a, head_b);
+	//printf("fin = %i y salimos al bucle while de nuevo\n", fin);
+}
+
+
+
+
+
+
+
+
 void	algortim_long(t_head_list *head_a, t_head_list *head_b)
 {
-	//int	sizeList;
+	int	count_chunk;
 
 	//print_stack(head_a, head_b);
 	chunk_calculator(head_a); //lo calculamos solo una vez: para 100: 30
-
-	//print_list(head_a);
-	// print_list(head_b);
+	count_chunk = 0; //tienen qe ser 0
 	while (head_a->size_list > 3)
 	{
-		printf("1. valor de chunk: %i\n", head_a->chunk);
-		move_min_b(head_a, head_b);
+		//printf("1. valor de chunk: %i\n", head_a->chunk);
+		move_min(head_a, head_b, count_chunk);
+		//printf("count chunk in while: %i\n", count_chunk);
+		count_chunk++; //jugar con este parametro para incermentar los limites del chunk a cada paso de entrada en move_min
 	}
-	sort_three(head_a);
+	algortim_short(head_a, head_b);
 	//print_stack(head_a, head_b);
 	//sizeList = head_b->size_list;
 	// while (head_b->size_list)
@@ -55,25 +106,30 @@ void	algortim_long(t_head_list *head_a, t_head_list *head_b)
 
 
 //usar las funciones de busqueda de top y bottom
-void	move_min_b(t_head_list *head_a, t_head_list *head_b) // ha funcionado esta funcion no esta muy optimizada
+void	move_min3(t_head_list *head_a, t_head_list *head_b, int count_chunk) // ha funcionado esta funcion no esta muy optimizada
 {
 	int	fin;
-	//int min;
+	int ini;
+	int chunk_while;
 	
-	fin	= head_a->chunk;
-	while (fin-- && head_a->size_list > 3)
+	chunk_while = head_a->chunk;
+	ini	= head_a->chunk * count_chunk; //cada vez que entre el bucle while los limites del chunk tienen que pasar al siguiente intervalo
+	if (head_a->chunk * (count_chunk + 1) > (int)head_a->size_list) //cuando crea el intervalo y para el ultimo chunk, no debe rebasar el numero maximo de elementos en la lista
+		fin	= head_a->chunk * (count_chunk + 1) - (int)head_a->size_list;
+	else	
+		fin	= head_a->chunk * (count_chunk + 1);
+	while (chunk_while-- && head_a->size_list > 3) //va a ejecutarse chunk veces (30)
 	{
-		// printf("1.primer nodo despues while: index minimo (%i) esta en posicion %i: chunk = %i \n", head_a->min, head_a->posit_min, head_a->chunk);
+		// printf("1.primer nodo despues while: index minimo (%i) esta en posicion %i: ini = %i y fin : %i\n", head_a->min, head_a->posit_min, ini, fin);
 		// print_node(head_a->header);
 		//min = head_a->posit_min; //posicion del minimo
 		if (head_a->posit_min > (int)head_a->size_list / 2) //esta en la segunda mitad
 		{
-			while (head_a->posit_min < (int)head_a->size_list)
+			while (head_a->posit_min < (int)head_a->size_list) //mientars posicion de minimo no este el  top, rota la pila
 			{
-				if (head_a->header->index < head_a->chunk)
+				if (head_a->header->index < fin) //a partir del segudo chunk . todos los indices seran mayores  que el chunk
 				{
-					// printf("2.1.nodo que va a b cuando el index minimo (%i) \
-					// esta en posicion %i: (2a mitad) chunk = %i \n", head_a->min, head_a->posit_min, head_a->chunk);
+					// printf("2.1 index minimo (%i) esta en posicion %i: ini = %i y fin : %i\n", head_a->min, head_a->posit_min, ini, fin);
 					// print_node(head_a->header);
 					push_topushed(head_a, head_b);
 				}
@@ -85,24 +141,27 @@ void	move_min_b(t_head_list *head_a, t_head_list *head_b) // ha funcionado esta 
 		{
 			while (head_a->posit_min)
 			{
-				if (head_a->header->index < head_a->chunk)
+				if (head_a->header->index < fin)
 				{
-					// printf("2.2 nodo que va a b cuando el index minimo (%i) esta en posicion %i: (1a mitad) chunk = %i \n", head_a->min, head_a->posit_min, head_a->chunk);
+					// printf("2.2 index minimo (%i) esta en posicion %i: ini = %i y fin : %i\n", head_a->min, head_a->posit_min, ini, fin);
 					// print_node(head_a->header);
 					push_topushed(head_a, head_b);
 
 				}
-				head_a->posit_min--;
-				rotate_stack(head_a);
+				head_a->posit_min--; //esta orden tarstoca la posicion del minimo 
+				rotate_stack(head_a); //aqui se actualiza la posicion del minimo 
 			}
 		}
-		// printf("3. nodo que va a b cuando el index minimo (%i) esta en posicion %i: chunk = %i \n", head_a->min, head_a->posit_min, head_a->chunk);
+		printf("3 index minimo (%i) esta en posicion %i: ini = %i y fin : %i\n", head_a->min, head_a->posit_min, ini, fin);
+		printf("tamano de la lista a %i\n",(int) head_a->size_list);
 		// print_node(head_a->header);
 		push_topushed(head_a, head_b);
 		//print_stack(head_a, head_b);
 		// search_min_stack(head_a); la lista se actualiza con cada push
 	}
 }
+
+
 
 void	move_min_b2(t_head_list *head_a, t_head_list *head_b) //no funciona muy bien 
 {

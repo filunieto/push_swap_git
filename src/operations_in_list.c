@@ -6,7 +6,7 @@
 /*   By: fnieves- <fnieves-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/20 16:33:35 by fnieves-          #+#    #+#             */
-/*   Updated: 2022/07/22 11:39:03 by fnieves-         ###   ########.fr       */
+/*   Updated: 2022/08/02 14:53:38 by fnieves-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ void add_node_end(t_head_list *head, t_node *new_node) //pasar esta funcion a op
 	head->tail = new_node;
 }
 
-void	increas_posit_nodes(t_head_list *head)
+void	increas_posit_nodes(t_head_list *head) //anadir el incremento de posicion max y min
 {
 	t_node	*current;
 	
@@ -58,9 +58,11 @@ void	increas_posit_nodes(t_head_list *head)
 		current->position++;
 		current = current->next;
 	}
+	head->posit_min++;
+	head->posit_max++;
 }
 
-void	decreas_posit_nodes(t_head_list *head)
+void	decreas_posit_nodes(t_head_list *head) //anadir el incremento de posicion max y min
 {
 	t_node	*current;
 	
@@ -72,6 +74,8 @@ void	decreas_posit_nodes(t_head_list *head)
 		current->position--;
 		current = current->next;
 	}
+	head->posit_min--;
+	head->posit_max--;
 }
 
 void	delete_list(t_head_list *head)

@@ -6,13 +6,13 @@
 /*   By: fnieves- <fnieves-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/19 16:58:59 by fnieves-          #+#    #+#             */
-/*   Updated: 2022/08/01 12:58:13 by fnieves-         ###   ########.fr       */
+/*   Updated: 2022/08/02 17:18:44 by fnieves-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-void	swap_one(t_head_list *head) //pasar esta funciona move_stack.c
+void	swap_one(t_head_list *head) //pasar esta funciona move_stack.c. hay que actualizar los indices max y min en caso de que 
 {
 	t_node	*old_first;
 	t_node	*new_first;
@@ -48,7 +48,7 @@ void	push_topushed(t_head_list *head_pusher, t_head_list *head_pushed)  //pasar 
 
 	if (head_pusher->size_list == 0)
 	{
-		printf("Empuja la lista %c pero esta vacia. No action\n", head_pusher->stack_name); //esto hayqque borrarlo
+		//printf("Empuja la lista %c pero esta vacia. No action\n", head_pusher->stack_name); //esto hayqque borrarlo
 		return ;
 	}
 	pusher = head_pusher->header;
@@ -76,7 +76,7 @@ void	rotate_stack(t_head_list *head)
 	
 	if (head->size_list < 2)
 	{
-		printf("lista de menos de 2 elementos. No hacemos nada");
+		//printf("lista de menos de 2 elementos. No hacemos nada");
 		return ;
 	}
 	new_last = head->header;
@@ -99,7 +99,7 @@ void	rotate_stack_reverse(t_head_list *head)
 	
 	if (head->size_list < 2)
 	{
-		printf("lista de menos de 2 elementos. No hacemos nada");
+		//printf("lista de menos de 2 elementos. No hacemos nada");
 		return ;
 	}
 	new_second = head->header;
