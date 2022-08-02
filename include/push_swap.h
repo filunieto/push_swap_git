@@ -6,7 +6,7 @@
 /*   By: fnieves- <fnieves-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/15 11:33:47 by fnieves-          #+#    #+#             */
-/*   Updated: 2022/08/01 15:33:38 by fnieves-         ###   ########.fr       */
+/*   Updated: 2022/08/02 18:06:09 by fnieves-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,7 @@ int		is_sorted(t_head_list *head_a);
 void	error_and_free_all(t_head_list *head_a, t_head_list *head_b);
 void	delete_list(t_head_list *head);
 
-
+void	swap_one_basic(t_head_list *head);
 void	swap_one(t_head_list *head);
 void	push_topushed(t_head_list *head_pusher, t_head_list *head_pushed);
 void	rotate_stack(t_head_list *head);
@@ -103,6 +103,7 @@ int		num_bin(int num);
 void	search_max_stack(t_head_list *head);
 void	search_min_stack(t_head_list *head);
 void	update_min_max(t_head_list *head_a, t_head_list *head_b);
+void	update_min_max_onelist(t_head_list *head_a);
 
 
 
@@ -119,8 +120,8 @@ void	algortim_long(t_head_list *head_a, t_head_list *head_b);
 void	chunk_calculator(t_head_list *head);
 void	move_min(t_head_list *head_a, t_head_list *head_b, int count_chunk);
 
-int	find_chunk_from_top(t_head_list *head_a);
-int	find_chunk_from_bottom(t_head_list *head_a);
+int		find_chunk_from_top(t_head_list *head_a);
+int		find_chunk_from_bottom(t_head_list *head_a);
 void	move_top(t_head_list *head, int position);
 void	move_bottom(t_head_list *head, int position);
 

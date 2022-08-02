@@ -19,3 +19,7 @@ echo "https://bluegales.github.io/push-swap-pain/?&nbr=$NBR_LINK&cmd=$CMD_LINK"
 # cambiar los nuemros en NBR_COUNT=100
 # escribir ./pain.sh
 # descargar el checker de mac, del ejercicio. Crear pain.sh con el script
+
+# o 
+# pip3 install push_swap_gui
+# python3 -m push_swap_gui

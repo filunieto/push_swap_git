@@ -6,13 +6,21 @@
 /*   By: fnieves- <fnieves-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/19 16:58:59 by fnieves-          #+#    #+#             */
-/*   Updated: 2022/08/02 17:18:44 by fnieves-         ###   ########.fr       */
+/*   Updated: 2022/08/02 18:05:53 by fnieves-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-void	swap_one(t_head_list *head) //pasar esta funciona move_stack.c. hay que actualizar los indices max y min en caso de que 
+void	swap_one(t_head_list *head)
+{
+	swap_one_basic(head);
+	printf("s%c\n", head->stack_name);
+	search_max_stack(head);
+	search_min_stack(head);
+}
+
+void swap_one_basic(t_head_list *head) //pasar esta funciona move_stack.c. hay que actualizar los indices max y min en caso de que 
 {
 	t_node	*old_first;
 	t_node	*new_first;
@@ -27,7 +35,6 @@ void	swap_one(t_head_list *head) //pasar esta funciona move_stack.c. hay que act
 	new_first->prev = NULL;  //1
 	head->header = new_first; //2
 	old_first->prev = new_first; //3
-	printf("s%c\n", head->stack_name); //estoy hay que buscarse como hacerlo mejor
 	if (head->size_list == 2)
 	{
 		new_first->next = old_first;
@@ -121,4 +128,10 @@ void	update_min_max(t_head_list *head_a, t_head_list *head_b)
 	search_max_stack(head_b);
 	search_min_stack(head_a);
 	search_min_stack(head_b);
+}
+
+void	update_min_max_onelist(t_head_list *head_a)
+{
+	search_max_stack(head_a);
+	search_min_stack(head_a);
 }
