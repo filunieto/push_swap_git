@@ -6,7 +6,7 @@
 /*   By: fnieves- <fnieves-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/15 11:33:47 by fnieves-          #+#    #+#             */
-/*   Updated: 2022/08/02 18:06:09 by fnieves-         ###   ########.fr       */
+/*   Updated: 2022/08/02 20:47:36 by fnieves-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,13 +56,14 @@ typedef struct s_head_list
 
 typedef struct s_stacks
 {
-	t_head_list		*a;
-	t_head_list		*b;
+	t_head_list		*head_a;
+	t_head_list		*head_b;
+	t_head_list		*sorting_copy;
 }		t_stacks;
 
-void	extract_inputs_tolist(int argc, char **argv1, t_head_list *head, char **array_words);
+void	split_convert_input_tolist(int argc, char **argv1, t_head_list *head, char **array_words);
 void	initialize_list(t_head_list *head, char stack_name);
-void	print_array(t_head_list *head, char **array_words , size_t *posicion);
+void	extract_input_tonode(t_head_list *head, char **array_words , size_t *posicion);
 
 void	print_list(t_head_list *head);
 void	print_node(t_node *node_tocheck);
@@ -110,6 +111,8 @@ void	update_min_max_onelist(t_head_list *head_a);
 t_node	*swap_nodes(t_head_list *head, int position);
 t_node	*swap_first_node(t_head_list *head);
 
+
+void	lets_sorting(t_head_list *head_a, t_head_list *head_b);
 /* Algortimos de ordenacion: short */
 void	algortim_short(t_head_list *head_a, t_head_list *head_b);
 void	sort_three(t_head_list *head_a);

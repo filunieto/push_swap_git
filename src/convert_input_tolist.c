@@ -6,7 +6,7 @@
 /*   By: fnieves- <fnieves-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/15 12:54:14 by fnieves-          #+#    #+#             */
-/*   Updated: 2022/07/25 19:12:06 by fnieves-         ###   ########.fr       */
+/*   Updated: 2022/08/02 21:43:50 by fnieves-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 **  creamos nodo,y vamos apilandolos, primer input ,top del stack A, segundo , al segundo... y verificamos que no esta repetido
 */
 
-void	ft_create_node_addend(t_head_list *head, int value_node, size_t position) //cambiar el nombre a la funcion from_inputnode_tostack_a
+void	from_inputnode_tostack_a(t_head_list *head, int value_node, size_t position) //cambiar el nombre a la funcion from_inputnode_tostack_a
 {
 	t_node *new_node;
 
@@ -41,7 +41,7 @@ void	ft_create_node_addend(t_head_list *head, int value_node, size_t position) /
 }
 
 //en esta funcion hay que meter 3 frees al menos
-void	print_array(t_head_list *head, char **array_words , size_t *position) //cambiar el nombre extract_input_tonode
+void	extract_input_tonode(t_head_list *head, char **array_words , size_t *position) //cambiar el nombre extract_input_tonode
 {
 	int	i;
 	int	j;
@@ -66,14 +66,14 @@ void	print_array(t_head_list *head, char **array_words , size_t *position) //cam
 			}
 			j++;
 		}
-		ft_create_node_addend(head, ft_atoi((const char *)array_words[i]), (int) *position);
+		from_inputnode_tostack_a(head, ft_atoi((const char *)array_words[i]), (int) *position);
 		//free(array_words[i]); //atencion: creo que no es suficiente con este free para no tener probelmas luego. ivestigar como hacer free
 		*position = *position + 1;
 		i++;
 	}
 }
 
-void	extract_inputs_tolist(int argc, char **argv1, t_head_list *head, char **array_words) //cambiar nombre a splitting_input
+void	split_convert_input_tolist(int argc, char **argv1, t_head_list *head, char **array_words) //cambiar nombre a split_convert_input_tolist
 {
 	size_t position_node;
 	int i;
@@ -83,7 +83,7 @@ void	extract_inputs_tolist(int argc, char **argv1, t_head_list *head, char **arr
 	while (i < argc)
 	{
 		array_words = ft_split(argv1[i], ' ');
-		print_array(head, array_words, &position_node);
+		extract_input_tonode(head, array_words, &position_node);
 		i++;
 	}
 }

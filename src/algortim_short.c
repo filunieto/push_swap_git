@@ -6,11 +6,21 @@
 /*   By: fnieves- <fnieves-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/23 18:53:19 by fnieves-          #+#    #+#             */
-/*   Updated: 2022/08/01 00:01:54 by fnieves-         ###   ########.fr       */
+/*   Updated: 2022/08/02 20:19:44 by fnieves-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
+void	lets_sorting(t_head_list *head_a, t_head_list *head_b)
+{
+	if (head_a->size_list <= 5)
+		algortim_short(head_a, head_b);
+	else
+		algortim_long(head_a, head_b);
+	//print_stack(head_a, head_b);
+	//hacer el free de todo
+}
+
 
 void	algortim_short(t_head_list *head_a, t_head_list *head_b)
 {

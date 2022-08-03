@@ -6,7 +6,7 @@
 /*   By: fnieves- <fnieves-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/05 18:39:57 by fnieves-          #+#    #+#             */
-/*   Updated: 2022/04/05 19:30:19 by fnieves-         ###   ########.fr       */
+/*   Updated: 2022/08/02 19:59:36 by fnieves-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,19 @@ static int	count_words(char const *s, char c)
 	return (words_number);
 }
 
+/*
+	If any problems free all the arrays.
+*/
+
+static void	free_array(char **array_words, int i)
+{
+	while (i)
+	{
+		free(array_words[i--]);
+	}
+	free(array_words);
+}
+
 char	**ft_split(char const *s, char c)
 {
 	char	**array_words;
@@ -75,6 +88,8 @@ char	**ft_split(char const *s, char c)
 	while (*s)
 	{
 		array_words[i++] = create_word(s, c);
+		if (!array_words[i - 1])
+			free_array(array_words, i - 1);
 		while (*s && *s != c)
 			s++;
 		while (*s && *s == c)
