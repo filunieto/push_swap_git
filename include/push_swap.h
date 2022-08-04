@@ -6,7 +6,7 @@
 /*   By: fnieves- <fnieves-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/15 11:33:47 by fnieves-          #+#    #+#             */
-/*   Updated: 2022/08/04 17:57:39 by fnieves-         ###   ########.fr       */
+/*   Updated: 2022/08/04 22:10:16 by fnieves-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -144,7 +144,11 @@ int		find_chunk_from_bottom(t_head_list *head_a);
 void	move_top(t_head_list *head, int position);
 void	move_bottom(t_head_list *head, int position);
 
+//comunes
 void	move_max(t_head_list *head_b, t_head_list *head_a);
+void	move_min_finalpart(t_head_list *head_a, t_head_list *head_b);
+void	move_max_a(t_head_list *head_a, t_head_list *head_b);
+
 
 
 
