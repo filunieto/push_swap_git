@@ -6,7 +6,7 @@
 /*   By: fnieves- <fnieves-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/19 16:58:59 by fnieves-          #+#    #+#             */
-/*   Updated: 2022/08/02 18:05:53 by fnieves-         ###   ########.fr       */
+/*   Updated: 2022/08/04 18:44:34 by fnieves-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,6 +97,7 @@ void	rotate_stack(t_head_list *head)
 	decreas_posit_nodes(head);
 	new_last->position = (int)head->size_list - 1;
 	printf("r%c\n", head->stack_name);
+	update_min_max_onelist(head);
 }
 
 void	rotate_stack_reverse(t_head_list *head)
@@ -120,6 +121,7 @@ void	rotate_stack_reverse(t_head_list *head)
 	increas_posit_nodes(head);
 	new_first->position = 0;
 	printf("rr%c\n", head->stack_name);
+	update_min_max_onelist(head);
 }
 
 void	update_min_max(t_head_list *head_a, t_head_list *head_b)

@@ -6,7 +6,7 @@
 /*   By: fnieves- <fnieves-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/23 18:53:19 by fnieves-          #+#    #+#             */
-/*   Updated: 2022/08/02 20:34:37 by fnieves-         ###   ########.fr       */
+/*   Updated: 2022/08/04 17:26:06 by fnieves-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,12 +29,12 @@ void	chunk_calculator(t_head_list *head)
 }
 
 
-void	move_min(t_head_list *head_a, t_head_list *head_b, int count_chunk)
+void	move_min2(t_head_list *head_a, t_head_list *head_b, int count_chunk)
 {
 	int	fin;
-	int ini;
+	//int ini;
 	
-	ini	= head_a->chunk * count_chunk; //cada vez que entre el bucle while los limites del chunk tienen que pasar al siguiente intervalo
+	//ini	= head_a->chunk * count_chunk; //cada vez que entre el bucle while los limites del chunk tienen que pasar al siguiente intervalo
 	if (head_a->chunk * (count_chunk + 1) > (int)head_a->size_list) //cuando crea el intervalo y para el ultimo chunk, no debe rebasar el numero maximo de elementos en la lista
 		fin	= head_a->chunk * (count_chunk) + (int)head_a->size_list - 4;
 	else	
@@ -70,28 +70,28 @@ void	move_min(t_head_list *head_a, t_head_list *head_b, int count_chunk)
 	}
 }
 
-void	move_max_a(t_head_list *head_a, t_head_list *head_b)
-{
-	while(head_b->size_list)
-	{
-		if (head_b->posit_max < (int) head_b->size_list / 2)
-		{
-			while (head_b->header->index != head_b->max)
-			{
-				rotate_stack(head_b);
-			}
-		}
-		else
-		{
-			while(head_b->header->index != head_b->max)
-			{
-				rotate_stack_reverse(head_b);
-			}
-		}
-		push_topushed(head_b, head_a);
-		//final_sorting_a(head_a);
-	}
-}
+// void	move_max_a(t_head_list *head_a, t_head_list *head_b)
+// {
+// 	while(head_b->size_list)
+// 	{
+// 		if (head_b->posit_max < (int) head_b->size_list / 2)
+// 		{
+// 			while (head_b->header->index != head_b->max)
+// 			{
+// 				rotate_stack(head_b);
+// 			}
+// 		}
+// 		else
+// 		{
+// 			while(head_b->header->index != head_b->max)
+// 			{
+// 				rotate_stack_reverse(head_b);
+// 			}
+// 		}
+// 		push_topushed(head_b, head_a);
+// 		//final_sorting_a(head_a);
+// 	}
+// }
 
 
 // void 	final_sorting_a(t_head_list *head_a)
@@ -108,10 +108,10 @@ void	algortim_long(t_head_list *head_a, t_head_list *head_b)
 	count_chunk = 0; //tienen qe ser 0
 	while (head_a->size_list > 3)
 	{
-		move_min(head_a, head_b, count_chunk);
+		move_min2(head_a, head_b, count_chunk);
 		count_chunk++; //jugar con este parametro para incermentar los limites del chunk a cada paso de entrada en move_min
 	}
 	algortim_short(head_a, head_b);
-	move_max_a(head_a, head_b);
+	//move_max_a(head_a, head_b);
 
 }

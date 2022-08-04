@@ -6,21 +6,11 @@
 /*   By: fnieves- <fnieves-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/23 18:53:19 by fnieves-          #+#    #+#             */
-/*   Updated: 2022/08/02 20:19:44 by fnieves-         ###   ########.fr       */
+/*   Updated: 2022/08/04 18:56:13 by fnieves-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
-void	lets_sorting(t_head_list *head_a, t_head_list *head_b)
-{
-	if (head_a->size_list <= 5)
-		algortim_short(head_a, head_b);
-	else
-		algortim_long(head_a, head_b);
-	//print_stack(head_a, head_b);
-	//hacer el free de todo
-}
-
 
 void	algortim_short(t_head_list *head_a, t_head_list *head_b)
 {
@@ -70,18 +60,16 @@ void	sort_more_three(t_head_list *head_a, t_head_list *head_b)
 {
 	int	i;
 	int	j;
-
-	i = head_a->size_list;
+	i = (int)head_a->size_list;
 	while (i-- > 3)
 	{
 		if (head_a->posit_max > (int) head_a->size_list / 2)
-			while (head_a->posit_max++ < (int)head_a->size_list)
+			while (head_a->header->index != head_a->max)
 				rotate_stack_reverse(head_a);
 		else
-			while (head_a->posit_max--)
+			while (head_a->header->index != head_a->max)
 				rotate_stack(head_a);
 		push_topushed(head_a, head_b);
-		search_max_stack(head_a);
 	}
 	sort_three(head_a);
 	j = head_b->size_list;

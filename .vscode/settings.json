@@ -36,6 +36,7 @@
 		"vector": "c",
 		"ios": "c",
 		"utility": "c",
-		"binario": "c"
+		"binario": "c",
+		"chrono": "c"
 	}
 }

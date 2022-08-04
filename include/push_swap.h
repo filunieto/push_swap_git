@@ -6,7 +6,7 @@
 /*   By: fnieves- <fnieves-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/15 11:33:47 by fnieves-          #+#    #+#             */
-/*   Updated: 2022/08/02 20:47:36 by fnieves-         ###   ########.fr       */
+/*   Updated: 2022/08/04 17:57:39 by fnieves-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,9 +61,13 @@ typedef struct s_stacks
 	t_head_list		*sorting_copy;
 }		t_stacks;
 
-void	split_convert_input_tolist(int argc, char **argv1, t_head_list *head, char **array_words);
+//Checking leaks
+void	check_leaks(void);
+
+// Converting from inputs to nodes and then  list
+void	split_input(int argc, char **argv1, t_head_list *head, char **array_words);
 void	initialize_list(t_head_list *head, char stack_name);
-void	extract_input_tonode(t_head_list *head, char **array_words , size_t *posicion);
+void	extract_inpt(t_head_list *head, char **array_words , size_t *posicion);
 
 void	print_list(t_head_list *head);
 void	print_node(t_node *node_tocheck);
@@ -75,9 +79,16 @@ int		check_doubles(t_head_list *head);
 int		is_sorted(t_head_list *head_a);
 
 
+// errors, free lists and / or arrays
 
 void	error_and_free_all(t_head_list *head_a, t_head_list *head_b);
 void	delete_list(t_head_list *head);
+void	free_array_list(char **array_words, t_head_list *head);
+void	error(int message, int needs_exit);
+void	free_all(t_head_list *head_a, t_head_list *head_b);
+void	exit_freelist(t_head_list *head, int message, int needs_exit);
+
+
 
 void	swap_one_basic(t_head_list *head);
 void	swap_one(t_head_list *head);
@@ -112,11 +123,16 @@ t_node	*swap_nodes(t_head_list *head, int position);
 t_node	*swap_first_node(t_head_list *head);
 
 
-void	lets_sorting(t_head_list *head_a, t_head_list *head_b);
+void	we_can_finally_sort(t_head_list *head_a, t_head_list *head_b);
 /* Algortimos de ordenacion: short */
 void	algortim_short(t_head_list *head_a, t_head_list *head_b);
 void	sort_three(t_head_list *head_a);
 void	sort_more_three(t_head_list *head_a, t_head_list *head_b);
+
+/* Algortimos de ordenacion: medium */
+
+void	algortim_medium(t_head_list *head_a, t_head_list *head_b);
+void	move_min_finalpart(t_head_list *head_a, t_head_list *head_b);
 
 /* Algortimos de ordenacion: long */
 void	algortim_long(t_head_list *head_a, t_head_list *head_b);

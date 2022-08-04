@@ -6,7 +6,7 @@
 /*   By: fnieves- <fnieves-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/15 11:33:44 by fnieves-          #+#    #+#             */
-/*   Updated: 2022/07/29 17:39:04 by fnieves-         ###   ########.fr       */
+/*   Updated: 2022/08/04 19:13:58 by fnieves-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,20 +25,15 @@ void	initialize_list(t_head_list *head, char stack_name)
 	head->chunk = 0;
 }
 
-
-void	error_and_free_all(t_head_list *head_a, t_head_list *head_b) //hay qe borrar el array de char depsues de split
+void	we_can_finally_sort(t_head_list *head_a, t_head_list *head_b)
 {
-	/* borar listas y free el char ** de malloc  e imprimir el mensaje de error*/
-	//int	i;
-	delete_list(head_a);
-	delete_list(head_b);
-	//i = 0;
-	// while (array_words[i])
-	// {
-	// 	printf("ha borrado las listas y va a borrar el array :%i, %s\n", i, array_words[i]);
-	// }
-	write(1, "Salida de Funcion error_and_free_all\n", 38); //modificar esto
-	//exit (2);
+	if (head_a->size_list <= 5)
+		algortim_short(head_a, head_b);
+	else if (5 < head_a->size_list && head_a->size_list <= 100)
+		algortim_medium(head_a, head_b);
+	else
+		algortim_long(head_a, head_b);
+	//print_stack(head_a, head_b); //esta hayq eu quiatrla
+	//printf("para %i elementos, chunk = %i\n", (int) head_a->size_list, head_a->chunk);
+	free_all(head_a, head_b);
 }
-
-//void	push_swap.c()

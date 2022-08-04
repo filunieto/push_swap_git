@@ -6,7 +6,7 @@
 /*   By: fnieves- <fnieves-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/24 13:16:50 by fnieves-          #+#    #+#             */
-/*   Updated: 2022/07/26 12:52:08 by fnieves-         ###   ########.fr       */
+/*   Updated: 2022/08/03 13:36:45 by fnieves-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	is_sorted(t_head_list *head_a)
 	current = head_a->header;
 	if (!current->next)
 	{
-		printf("un solo elemento. Lista ordanda desde el origen\n");
+		//printf("un solo elemento. Lista ordanda desde el origen\n");
 		return (1); //un solo elemento y esta ordenada
 	}
 	while (current->next)
@@ -30,6 +30,6 @@ int	is_sorted(t_head_list *head_a)
 		}
 		current = current->next;
 	}
-	printf("lista ordenada desde el inicio. Salimos\n");
+	//printf("lista ordenada desde el inicio. Salimos\n");
 	return (1);
 }

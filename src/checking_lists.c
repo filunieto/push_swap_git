@@ -6,7 +6,7 @@
 /*   By: fnieves- <fnieves-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/21 13:41:39 by fnieves-          #+#    #+#             */
-/*   Updated: 2022/08/01 11:47:26 by fnieves-         ###   ########.fr       */
+/*   Updated: 2022/08/03 11:36:31 by fnieves-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,10 @@
 
 void	print_list(t_head_list *head)
 {
-	int	i;
+	//int	i;
 	t_node	*temp;
 
-	i = 0;
+	//i = 0;
 	if (!head->header || !head->tail)
 	{
 		printf("Lista %c esta vacia o tail vacio. Tenemos %i elementos\n", head->stack_name, (int) head->size_list);

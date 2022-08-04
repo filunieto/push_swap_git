@@ -6,17 +6,22 @@
 /*   By: fnieves- <fnieves-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/21 13:33:42 by fnieves-          #+#    #+#             */
-/*   Updated: 2022/08/03 10:20:45 by fnieves-         ###   ########.fr       */
+/*   Updated: 2022/08/03 17:23:05 by fnieves-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-void	check(void) //funcion para borrar
+/*
+	atexit(check_leaks);
+*/
+
+void	check_leaks(void)
 {
 	system("leaks push_swap");
 }
 
+//agreagar la funcion printf y cambiarla por ft_printf
 int	main(int argc, char **argv)
 {
 	t_head_list		head_a; 
@@ -24,29 +29,19 @@ int	main(int argc, char **argv)
 	t_head_list		sorting_copy;
 	char **array_words;
 
-	//atexit(check); //borrar solo para emmory leaks
 	initialize_list(&head_a, 'a');
 	initialize_list(&head_b, 'b');
 	initialize_list(&sorting_copy, 'c');
 	array_words = NULL;
 	if (argc < 2)
-	{
-		write(1, "Error en el numero de argumentos\n", 34); //cambair el mensaje de error y hcer free
 		exit (1);
-	}
-	split_convert_input_tolist(argc - 1, &argv[1], &head_a, array_words); //revisar esta nomenclatura de punteros de arrays, creo que (&*array_words == array_words)
+	split_input(argc - 1, &argv[1], &head_a, array_words);
 	if(check_doubles(&head_a))
-	{
-		printf("en la lista hay valores dobles. Salir\n");
-		exit (3);
-	}
+		exit_freelist(&head_a, 1, 1);
 	if (is_sorted(&head_a))
-		exit (4);
-	split_convert_input_tolist(argc - 1, &argv[1], &sorting_copy, array_words);
-	bubble_sort(&sorting_copy);
+		exit_freelist(&head_a, 0, 1);
+	split_input(argc - 1, &argv[1], &sorting_copy, array_words);
 	indexing_list(&head_a, &sorting_copy);
-	// para 20 o menos no funciona. Creo que no funcikna el de 5
-	lets_sorting(&head_a, &head_b);
-	//print_stack(&head_a, &head_b);
-	return (2);	
+	we_can_finally_sort(&head_a, &head_b);
+	return (1);	
 }

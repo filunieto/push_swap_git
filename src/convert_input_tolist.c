@@ -6,28 +6,30 @@
 /*   By: fnieves- <fnieves-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/15 12:54:14 by fnieves-          #+#    #+#             */
-/*   Updated: 2022/08/02 21:43:50 by fnieves-         ###   ########.fr       */
+/*   Updated: 2022/08/03 15:48:04 by fnieves-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 /* 
-** Para cada argumento del input que extraigamos , verificamos que es un numero , convertimos en int,
-**  creamos nodo,y vamos apilandolos, primer input ,top del stack A, segundo , al segundo... y verificamos que no esta repetido
+	Para cada argumento del input que extraigamos ,
+	verificamos que es un numero , convertimos en int,
+	creamos nodo,y vamos apilandolos, primer input ,
+	top del stack A, segundo , al segundo... y verificamos que no esta repetido
 */
 
-void	from_inputnode_tostack_a(t_head_list *head, int value_node, size_t position) //cambiar el nombre a la funcion from_inputnode_tostack_a
+void	tostack_a(t_head_list *head, int value, size_t posit)
 {
-	t_node *new_node;
+	t_node	*new_node;
 
 	new_node = (t_node *)malloc(sizeof(t_node));
 	if (!new_node)
 		return ;
-	new_node->number = value_node;
-	new_node->position = position;
+	new_node->number = value;
+	new_node->position = posit;
 	new_node->next = NULL;
 	new_node->prev = NULL;
-	new_node->index = position;
+	new_node->index = posit;
 	if (!head->header)
 	{
 		head->max = new_node->number;
@@ -40,50 +42,56 @@ void	from_inputnode_tostack_a(t_head_list *head, int value_node, size_t position
 	add_node_end(head, new_node);
 }
 
-//en esta funcion hay que meter 3 frees al menos
-void	extract_input_tonode(t_head_list *head, char **array_words , size_t *position) //cambiar el nombre extract_input_tonode
+/*
+	si encuentra un signo menos aislado
+	lo interpreta como un 0. corregir
+*/
+void	extract_inpt(t_head_list *head, char **array_w, size_t *posit)
 {
 	int	i;
 	int	j;
 
 	i = 0;
-	if (!array_words[i])
-	{
- 		printf("array de 0. Error \n"); //si metemos entre comillas ningun argumento
-		exit (1) ;
-	}
-	while (array_words[i])
+	if (!array_w[i])
+		free_array_list(array_w, head);
+	while (array_w[i])
 	{
 		j = 0;
-		if ('-' == array_words[i][j])
+		if ('-' == array_w[i][j])
 			j++;
-		while (array_words[i][j])
+		while (array_w[i][j])
 		{
-			if (!ft_isdigit(array_words[i][j]))
-			{
-				printf("ha encontardo un NO digito. Error\n");
-				exit (2);
-			}
+			if (!ft_isdigit(array_w[i][j]))
+				free_array_list(array_w, head);
 			j++;
 		}
-		from_inputnode_tostack_a(head, ft_atoi((const char *)array_words[i]), (int) *position);
-		//free(array_words[i]); //atencion: creo que no es suficiente con este free para no tener probelmas luego. ivestigar como hacer free
-		*position = *position + 1;
+		tostack_a(head, ft_atoi((const char *)array_w[i]), (int) *posit);
+		free(array_w[i]);
+		*posit = *posit + 1;
 		i++;
 	}
+	free(array_w);
 }
 
-void	split_convert_input_tolist(int argc, char **argv1, t_head_list *head, char **array_words) //cambiar nombre a split_convert_input_tolist
+/*
+	position_node : Node position which is creating.
+	En el bucle while: Cada argumento 
+	(uno o varios si est'an entre comillas),
+	se van posicionando en el array de strings
+	siempre nullterminated
+*/
+
+void	split_input(int argc, char **argv1, t_head_list *head, char **array_w)
 {
-	size_t position_node;
-	int i;
+	size_t	position_node;
+	int		i;
 
 	position_node = 0;
 	i = 0;
 	while (i < argc)
 	{
-		array_words = ft_split(argv1[i], ' ');
-		extract_input_tonode(head, array_words, &position_node);
+		array_w = ft_split(argv1[i], ' ');
+		extract_inpt(head, array_w, &position_node);
 		i++;
 	}
 }
