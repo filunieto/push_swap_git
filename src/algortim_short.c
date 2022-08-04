@@ -6,7 +6,7 @@
 /*   By: fnieves- <fnieves-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/23 18:53:19 by fnieves-          #+#    #+#             */
-/*   Updated: 2022/08/04 18:56:13 by fnieves-         ###   ########.fr       */
+/*   Updated: 2022/08/04 20:04:14 by fnieves-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,8 @@ void	sort_more_three(t_head_list *head_a, t_head_list *head_b)
 {
 	int	i;
 	int	j;
+	
+	j = 0;
 	i = (int)head_a->size_list;
 	while (i-- > 3)
 	{
@@ -70,9 +72,9 @@ void	sort_more_three(t_head_list *head_a, t_head_list *head_b)
 			while (head_a->header->index != head_a->max)
 				rotate_stack(head_a);
 		push_topushed(head_a, head_b);
+		j++;
 	}
 	sort_three(head_a);
-	j = head_b->size_list;
 	while (j--)
 	{
 		push_topushed(head_b, head_a);
