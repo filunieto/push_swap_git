@@ -6,7 +6,7 @@
 #    By: fnieves- <fnieves-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/15 10:55:21 by fnieves-          #+#    #+#              #
-#    Updated: 2022/08/04 17:25:07 by fnieves-         ###   ########.fr        #
+#    Updated: 2022/08/05 13:07:28 by fnieves-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,7 +32,6 @@ SRC	= 		push_swap.c \
 			bubble_sort.c \
 			algortim_short.c \
 			algortim_medium.c \
-			algortim_long.c \
 			search_limits_stack.c \
 			free_error.c
 			

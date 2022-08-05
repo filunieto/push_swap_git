@@ -6,7 +6,7 @@
 /*   By: fnieves- <fnieves-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/15 11:33:47 by fnieves-          #+#    #+#             */
-/*   Updated: 2022/08/04 22:10:16 by fnieves-         ###   ########.fr       */
+/*   Updated: 2022/08/05 12:58:17 by fnieves-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -148,6 +148,10 @@ void	move_bottom(t_head_list *head, int position);
 void	move_max(t_head_list *head_b, t_head_list *head_a);
 void	move_min_finalpart(t_head_list *head_a, t_head_list *head_b);
 void	move_max_a(t_head_list *head_a, t_head_list *head_b);
+
+//uevo algoritmo
+void	algo_chunkcreate(t_head_list *head_a, t_head_list *head_b);
+void	algo_calcuchunk(t_head_list *head_a);
 
 
 
