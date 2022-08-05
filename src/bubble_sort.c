@@ -6,7 +6,7 @@
 /*   By: fnieves- <fnieves-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/25 17:41:03 by fnieves-          #+#    #+#             */
-/*   Updated: 2022/08/03 15:58:21 by fnieves-         ###   ########.fr       */
+/*   Updated: 2022/08/05 15:34:18 by fnieves-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,25 +14,25 @@
 
 void	bubble_sort(t_head_list *head_c)
 {
-	int node_ctr;
-	int ctr;
-	int	node_data_copy;
-	t_node	*currentNode;
-	
+	int			node_ctr;
+	int			ctr;
+	int			node_data_copy;
+	t_node		*current_node;
+
 	node_ctr = head_c->size_list - 1;
 	while (node_ctr--)
 	{
-		currentNode = head_c->header;
-		ctr	= 0;
+		current_node = head_c->header;
+		ctr = 0;
 		while (ctr++ <= node_ctr)
 		{
-			if (currentNode->number > currentNode->next->number)
+			if (current_node->number > current_node->next->number)
 			{
-				node_data_copy = currentNode->number;
-				currentNode->number = currentNode->next->number;
-				currentNode->next->number = node_data_copy;
+				node_data_copy = current_node->number;
+				current_node->number = current_node->next->number;
+				current_node->next->number = node_data_copy;
 			}
-			currentNode = currentNode->next;
+			current_node = current_node->next;
 		}
 	}
 }
@@ -43,7 +43,6 @@ void	indexing_list(t_head_list *head_a, t_head_list *sorting_copy)
 	t_node	*current_c;
 
 	bubble_sort(sorting_copy);
-
 	current_a = head_a->header;
 	while (current_a)
 	{
@@ -60,35 +59,5 @@ void	indexing_list(t_head_list *head_a, t_head_list *sorting_copy)
 	}
 	search_max_stack(head_a);
 	search_min_stack(head_a);
-	delete_list(sorting_copy);	
+	delete_list(sorting_copy);
 }
-
-// void	convert_index_bin(t_head_list *head_a) //esta funcion y ;a siguienete abajo  no son necesaria
-// {
-// 	t_node	*current;
-// 	print_list(head_a);
-// 	current = head_a->header;
-// 	while (current)
-// 	{
-// 		current->index = num_bin(current->index);
-// 		current = current->next;
-// 	}
-// 	print_list(head_a);
-
-// }
-
-// int	num_bin(int num)
-// {
-// 	int bin;
-// 	int	k;
-
-// 	bin = 0;
-// 	k = 1;
-// 	while(num)
-// 	{
-// 		bin = bin + (num % 2) * k;
-// 		k = k * 10;
-// 		num = num /2;
-// 	}
-// 	return (bin);
-// }

@@ -6,7 +6,7 @@
 /*   By: fnieves- <fnieves-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/21 13:41:39 by fnieves-          #+#    #+#             */
-/*   Updated: 2022/08/03 11:36:31 by fnieves-         ###   ########.fr       */
+/*   Updated: 2022/08/05 15:32:44 by fnieves-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,8 @@
 
 void	print_list(t_head_list *head)
 {
-	//int	i;
 	t_node	*temp;
 
-	//i = 0;
 	if (!head->header || !head->tail)
 	{
 		printf("Lista %c esta vacia o tail vacio. Tenemos %i elementos\n", head->stack_name, (int) head->size_list);
@@ -30,19 +28,12 @@ void	print_list(t_head_list *head)
 	printf("-------Informacion de La lista %c----------\n", head->stack_name);
 	printf("elementos de la lista: %i, \n", (int)head->size_list);
 	printf("En valores indexados: \nValor de max: %i, Posicion de  max = %i.\n Valor de min: %i, Posicion de min = %i \n", head->max, head->posit_max, head->min, head->posit_min);
-	//printf("Imprsion de nodos desde el header hasta el tail\n");
 	while (temp)
 	{
 		printf("elemento %i, valor= %i, index = %i \n",temp->position, temp->number, temp->index);
 		temp = temp->next;
 	}
-	// temp = head->tail;
-	// printf("\n----Reves, desde el Tail hasta el header----\n");
-	// while (temp)
-	// {
-	// 	printf("elemento %i, valor= %i \n",temp->position, temp->number);
-	// 	temp = temp->prev;
-	// }
+
 	printf("-------FIN DE IMPRESION de lista-------\n");
 }
 

@@ -6,7 +6,7 @@
 #    By: fnieves- <fnieves-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/15 10:55:21 by fnieves-          #+#    #+#              #
-#    Updated: 2022/08/05 13:07:28 by fnieves-         ###   ########.fr        #
+#    Updated: 2022/08/05 15:47:47 by fnieves-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,8 +35,6 @@ SRC	= 		push_swap.c \
 			search_limits_stack.c \
 			free_error.c
 			
-#			moves_stack.c \
-
 
 # BON 	= main_bonus.c
 

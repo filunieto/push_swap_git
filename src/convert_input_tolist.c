@@ -6,7 +6,7 @@
 /*   By: fnieves- <fnieves-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/15 12:54:14 by fnieves-          #+#    #+#             */
-/*   Updated: 2022/08/03 15:48:04 by fnieves-         ###   ########.fr       */
+/*   Updated: 2022/08/05 15:22:07 by fnieves-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ void	extract_inpt(t_head_list *head, char **array_w, size_t *posit)
 	while (array_w[i])
 	{
 		j = 0;
-		if ('-' == array_w[i][j])
+		if ('-' == array_w[i][j] && ft_isdigit(array_w[i][j + 1]))
 			j++;
 		while (array_w[i][j])
 		{

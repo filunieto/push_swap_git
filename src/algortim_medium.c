@@ -6,7 +6,7 @@
 /*   By: fnieves- <fnieves-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/23 18:53:19 by fnieves-          #+#    #+#             */
-/*   Updated: 2022/08/05 13:29:47 by fnieves-         ###   ########.fr       */
+/*   Updated: 2022/08/05 15:35:47 by fnieves-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,7 @@ void	algo_calcuchunk(t_head_list *head_a)
 	int	index;
 	int	len;
 
-	//len = stc->len_a;
 	len = head_a->size_list;
-
 	index = 0;
 	if (head_a->size_list > 1)
 	{
@@ -58,9 +56,7 @@ void	algo_chunkcreate(t_head_list *head_a, t_head_list *head_b)
 
 void	move_max_a(t_head_list *head_a, t_head_list *head_b)
 {
-	// print_list(head_a);
-	// print_list(head_b);
-	while(head_b->size_list)
+	while (head_b->size_list)
 	{
 		if (head_b->posit_max < (int) head_b->size_list / 2)
 		{
@@ -69,13 +65,10 @@ void	move_max_a(t_head_list *head_a, t_head_list *head_b)
 		}
 		else
 		{
-			while(head_b->header->index != head_b->max)
+			while (head_b->header->index != head_b->max)
 				rotate_stack_reverse(head_b);
 		}
 		push_topushed(head_b, head_a);
-		// if (head_a->header->index > head_a->header->next->index)
-		// 	swap_one(head_a);
-
 	}
 }
 

@@ -37,6 +37,7 @@
 		"ios": "c",
 		"utility": "c",
 		"binario": "c",
-		"chrono": "c"
+		"chrono": "c",
+		"string.h": "c"
 	}
 }

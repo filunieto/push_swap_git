@@ -6,7 +6,7 @@
 /*   By: fnieves- <fnieves-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/23 18:53:19 by fnieves-          #+#    #+#             */
-/*   Updated: 2022/08/04 20:04:14 by fnieves-         ###   ########.fr       */
+/*   Updated: 2022/08/05 15:35:09 by fnieves-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@ void	algortim_short(t_head_list *head_a, t_head_list *head_b)
 		sort_three(head_a);
 	else if (head_a->size_list > 3)
 		sort_more_three(head_a, head_b);
-	//print_stack(head_a, head_b);
 }
 
 void	sort_three(t_head_list *head_a)
@@ -30,28 +29,27 @@ void	sort_three(t_head_list *head_a)
 	int	bottom;
 
 	top = head_a->header->number;
-	middle  = head_a->header->next->number;
+	middle = head_a->header->next->number;
 	bottom = head_a->header->next->next->number;
-	//printf("top %i, middel, %i, bottom %i\n", top, middle, bottom);
-	if (top > middle && top < bottom && middle < bottom) // caso 1
+	if (top > middle && top < bottom && middle < bottom)
 		swap_one(head_a);
-	else if (top > middle && top > bottom && middle > bottom) //caso 2
+	else if (top > middle && top > bottom && middle > bottom)
 	{
 		swap_one(head_a);
 		rotate_stack_reverse(head_a);
 	}
-	else if (top > middle && top > bottom && middle < bottom) //caso 3
+	else if (top > middle && top > bottom && middle < bottom)
 		rotate_stack(head_a);
-	else if (top < middle && top < bottom && middle > bottom) //caso 4
+	else if (top < middle && top < bottom && middle > bottom)
 	{
 		swap_one(head_a);
 		rotate_stack(head_a);
 	}
-	else if (top < middle && top > bottom && middle > bottom) // if (top < middle && top < bottom && middle > bottom) . borrar si no da problemas
+	else if (top < middle && top > bottom && middle > bottom)
 		rotate_stack_reverse(head_a);
 }
 
- /* 
+/* 
 ** Pasamos a la pila b el maximo de a, hasta que nos queden 3 elementos en a
 ** una vez ordenemos a, vamos pasando los maximos y rotando
 ** igual podemos mejorar la eficiencia si calculamos. no parece que mejore
@@ -60,7 +58,7 @@ void	sort_more_three(t_head_list *head_a, t_head_list *head_b)
 {
 	int	i;
 	int	j;
-	
+
 	j = 0;
 	i = (int)head_a->size_list;
 	while (i-- > 3)

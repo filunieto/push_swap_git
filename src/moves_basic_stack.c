@@ -6,7 +6,7 @@
 /*   By: fnieves- <fnieves-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/19 16:58:59 by fnieves-          #+#    #+#             */
-/*   Updated: 2022/08/04 18:44:34 by fnieves-         ###   ########.fr       */
+/*   Updated: 2022/08/05 15:28:11 by fnieves-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	swap_one(t_head_list *head)
 	search_min_stack(head);
 }
 
-void swap_one_basic(t_head_list *head) //pasar esta funciona move_stack.c. hay que actualizar los indices max y min en caso de que 
+void	swap_one_basic(t_head_list *head)
 {
 	t_node	*old_first;
 	t_node	*new_first;
@@ -32,32 +32,29 @@ void swap_one_basic(t_head_list *head) //pasar esta funciona move_stack.c. hay q
 	new_first = old_first->next;
 	old_first->position = 1;
 	new_first->position = 0;
-	new_first->prev = NULL;  //1
-	head->header = new_first; //2
-	old_first->prev = new_first; //3
+	new_first->prev = NULL;
+	head->header = new_first;
+	old_first->prev = new_first;
 	if (head->size_list == 2)
 	{
 		new_first->next = old_first;
 		old_first->next = NULL;
 		head->tail = old_first;
 		return ;
-	} 
+	}
 	third = new_first->next;
 	third->prev = old_first;
 	old_first->next = third;
-	new_first->next = old_first; 
+	new_first->next = old_first;
 }
 
-void	push_topushed(t_head_list *head_pusher, t_head_list *head_pushed)  //pasar esta funciona move_stack.c
+void	push_topushed(t_head_list *head_pusher, t_head_list *head_pushed)
 {
 	t_node	*pusher;
-	t_node	*newfirst_pusher; //solo a usar si hay mas de un elemento en la lista del spusher
+	t_node	*newfirst_pusher;
 
 	if (head_pusher->size_list == 0)
-	{
-		//printf("Empuja la lista %c pero esta vacia. No action\n", head_pusher->stack_name); //esto hayqque borrarlo
 		return ;
-	}
 	pusher = head_pusher->header;
 	pusher->position = 0;
 	if (head_pusher->size_list == 1)
@@ -80,12 +77,9 @@ void	rotate_stack(t_head_list *head)
 {
 	t_node	*new_last;
 	t_node	*new_first;
-	
+
 	if (head->size_list < 2)
-	{
-		//printf("lista de menos de 2 elementos. No hacemos nada");
 		return ;
-	}
 	new_last = head->header;
 	new_first = new_last->next;
 	new_first->prev = NULL;
@@ -104,12 +98,9 @@ void	rotate_stack_reverse(t_head_list *head)
 {
 	t_node	*new_second;
 	t_node	*new_first;
-	
+
 	if (head->size_list < 2)
-	{
-		//printf("lista de menos de 2 elementos. No hacemos nada");
 		return ;
-	}
 	new_second = head->header;
 	new_first = head->tail;
 	head->tail = head->tail->prev;
@@ -122,18 +113,4 @@ void	rotate_stack_reverse(t_head_list *head)
 	new_first->position = 0;
 	printf("rr%c\n", head->stack_name);
 	update_min_max_onelist(head);
-}
-
-void	update_min_max(t_head_list *head_a, t_head_list *head_b)
-{
-	search_max_stack(head_a);
-	search_max_stack(head_b);
-	search_min_stack(head_a);
-	search_min_stack(head_b);
-}
-
-void	update_min_max_onelist(t_head_list *head_a)
-{
-	search_max_stack(head_a);
-	search_min_stack(head_a);
 }
