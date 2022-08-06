@@ -32,6 +32,7 @@ SRCS 			= 	ft_atoi.c \
 					ft_strtrim.c \
 					ft_substr.c \
 					ft_strlcpy.c \
+					ft_itoa_base.c
 
 OBJS			= $(SRCS:.c=.o)
 

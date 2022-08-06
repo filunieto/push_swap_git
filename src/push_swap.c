@@ -6,7 +6,7 @@
 /*   By: fnieves- <fnieves-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/15 11:33:44 by fnieves-          #+#    #+#             */
-/*   Updated: 2022/08/05 15:08:16 by fnieves-         ###   ########.fr       */
+/*   Updated: 2022/08/06 12:22:00 by fnieves-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,4 +32,18 @@ void	we_can_finally_sort(t_head_list *head_a, t_head_list *head_b)
 	else
 		algortim_medium(head_a, head_b);
 	free_all(head_a, head_b);
+}
+
+void	print_order(char c, int movement)
+{
+	if (movement == 1)
+		write(1, "s", 1);
+	else if (movement == 2)
+		write(1, "p", 1);
+	else if (movement == 3)
+		write(1, "r", 1);
+	else if (movement == 4)
+		write(1, "rr", 2);
+	write(1, &c, 1);
+	write(1, "\n", 1);
 }

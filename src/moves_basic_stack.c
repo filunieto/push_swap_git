@@ -6,7 +6,7 @@
 /*   By: fnieves- <fnieves-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/19 16:58:59 by fnieves-          #+#    #+#             */
-/*   Updated: 2022/08/05 15:28:11 by fnieves-         ###   ########.fr       */
+/*   Updated: 2022/08/06 12:21:54 by fnieves-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	swap_one(t_head_list *head)
 {
 	swap_one_basic(head);
-	printf("s%c\n", head->stack_name);
+	print_order(head->stack_name, 1);
 	search_max_stack(head);
 	search_min_stack(head);
 }
@@ -70,7 +70,7 @@ void	push_topushed(t_head_list *head_pusher, t_head_list *head_pushed)
 	}
 	add_node_begginig(head_pushed, pusher);
 	update_min_max(head_pushed, head_pusher);
-	printf("p%c\n", head_pushed->stack_name);
+	print_order(head_pushed->stack_name, 2);
 }
 
 void	rotate_stack(t_head_list *head)
@@ -90,7 +90,7 @@ void	rotate_stack(t_head_list *head)
 	head->tail = new_last;
 	decreas_posit_nodes(head);
 	new_last->position = (int)head->size_list - 1;
-	printf("r%c\n", head->stack_name);
+	print_order(head->stack_name, 3);
 	update_min_max_onelist(head);
 }
 
@@ -111,6 +111,6 @@ void	rotate_stack_reverse(t_head_list *head)
 	head->header = new_first;
 	increas_posit_nodes(head);
 	new_first->position = 0;
-	printf("rr%c\n", head->stack_name);
+	print_order(head->stack_name, 4);
 	update_min_max_onelist(head);
 }
