@@ -6,7 +6,7 @@
 /*   By: fnieves- <fnieves-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/24 13:16:50 by fnieves-          #+#    #+#             */
-/*   Updated: 2022/08/07 15:45:15 by fnieves-         ###   ########.fr       */
+/*   Updated: 2022/08/07 19:31:55 by fnieves-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,3 +32,8 @@ int	is_sorted(t_head_list *head_a)
 	}
 	return (1);
 }
+
+/*
+	List of double movements from the stack which are not used
+	by my algorithms. Just in case
+*/

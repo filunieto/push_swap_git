@@ -6,7 +6,7 @@
 /*   By: fnieves- <fnieves-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/03 13:04:19 by fnieves-          #+#    #+#             */
-/*   Updated: 2022/08/07 16:20:07 by fnieves-         ###   ########.fr       */
+/*   Updated: 2022/08/07 19:21:14 by fnieves-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@ void	free_all(t_head_list *head_a, t_head_list *head_b)
 	message != 0 >>> Escribe error
 	exit != 0 >>> Sale con exit
 */
-
 void	error(int message, int needs_exit)
 {
 	if (message)

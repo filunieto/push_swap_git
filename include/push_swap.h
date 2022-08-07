@@ -6,7 +6,7 @@
 /*   By: fnieves- <fnieves-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/15 11:33:47 by fnieves-          #+#    #+#             */
-/*   Updated: 2022/08/07 16:20:36 by fnieves-         ###   ########.fr       */
+/*   Updated: 2022/08/07 19:08:45 by fnieves-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -119,6 +119,7 @@ void	algo_calcuchunk(t_head_list *head_a);
 // Bonus functions
 void	checker(t_head_list *head_a, t_head_list *head_b, char *line);
 void	free_all_error(t_head_list *head_a, t_head_list *head_b, char *line);
+void		lets_bonus(t_head_list *head_a, t_head_list *head_b);
 
 
 
