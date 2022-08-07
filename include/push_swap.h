@@ -6,7 +6,7 @@
 /*   By: fnieves- <fnieves-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/15 11:33:47 by fnieves-          #+#    #+#             */
-/*   Updated: 2022/08/07 14:12:53 by fnieves-         ###   ########.fr       */
+/*   Updated: 2022/08/07 16:20:36 by fnieves-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,13 +51,6 @@ typedef struct s_head_list
 	char	stack_name;
 	int		chunk;
 }	t_head_list;
-
-typedef struct s_stacks
-{
-	t_head_list		*head_a;
-	t_head_list		*head_b;
-	t_head_list		*sorting_copy;
-}		t_stacks;
 
 //Checking leaks
 void	check_leaks(void);
@@ -111,16 +104,49 @@ void	search_min_stack(t_head_list *head);
 void	update_min_max(t_head_list *head_a, t_head_list *head_b);
 void	update_min_max_onelist(t_head_list *head_a);
 
-/* Sorting algorithms: short */
+// Sorting algorithms: short */
 void	we_can_finally_sort(t_head_list *head_a, t_head_list *head_b);
 void	algortim_short(t_head_list *head_a, t_head_list *head_b);
 void	sort_three(t_head_list *head_a);
 void	sort_more_three(t_head_list *head_a, t_head_list *head_b);
 
-/* Sorting algorithms: medium */
+// Sorting algorithms: medium 
 void	algortim_medium(t_head_list *head_a, t_head_list *head_b);
 void	move_max_a(t_head_list *head_a, t_head_list *head_b);
 void	algo_chunkcreate(t_head_list *head_a, t_head_list *head_b);
 void	algo_calcuchunk(t_head_list *head_a);
+
+// Bonus functions
+void	checker(t_head_list *head_a, t_head_list *head_b, char *line);
+void	free_all_error(t_head_list *head_a, t_head_list *head_b, char *line);
+
+
+
+# define NUMB_FILE_DESCR 1024
+
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 10
+# endif
+
+typedef struct s_node_gnl
+{
+	char			*content;
+	struct s_node_gnl	*next;
+}t_node_gnl;
+
+typedef struct s_head_list_gnl
+{
+	t_node_gnl	*header;
+}t_head_list_gnl;
+
+char	*get_next_line(int fd);
+void	ft_read_and_stash(int fd, t_head_list_gnl *head);
+void	ft_add_to_stash(t_head_list_gnl *head, char *buff, int readed);
+void	clean_stash(t_head_list_gnl *head);
+void	ft_extract_line(t_head_list_gnl *head, char **line);
+int		found_newline(t_head_list_gnl *head);
+t_node_gnl	*ft_lst_get_last(t_head_list_gnl *head);
+void	generate_line(t_head_list_gnl *head, char **line);
+void	ft_delete_list(t_head_list_gnl *head);
 
 #endif

@@ -6,19 +6,19 @@
 #    By: fnieves- <fnieves-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/15 10:55:21 by fnieves-          #+#    #+#              #
-#    Updated: 2022/08/07 14:12:36 by fnieves-         ###   ########.fr        #
+#    Updated: 2022/08/07 16:33:08 by fnieves-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-VPATH	= src #bonus, anadir?  >>> folder
+VPATH	= src bonus
 INCFLAGS = -I libft -I include #si ncluimls mas librerias modificar: include , buscara los headers
 
 CC		= cc
 FLAGS	=  -Wall -Werror -Wextra
-# BONUSNAME = push_swap?
 
-NAME	= push_swap
-# BONUSNAME = push_swap?
+NAME		=	push_swap
+BONUSNAME	=	checker
+
 HEADER	= 	include/push_swap.h
 
 #atencion que en uno he puesto carpetas src/ y e otro no. Armonizar
@@ -33,15 +33,17 @@ SRC	= 		push_swap.c \
 			algortim_short.c \
 			algortim_medium.c \
 			search_limits_stack.c \
-			free_error.c
+			free_error.c \
+			get_next_line_utils.c \
+			get_next_line.c \
 
 
-# BON 	= main_bonus.c
+BON 	= 	bonus.c
 
 
 LIBS	= libft/libft.a 	# ftprintf/libftprintf.a, ...
 OBJ		= $(addprefix obj/,$(notdir $(SRC:.c=.o))) #notdir , no incluir directorio
-# BONOBJ	= $(addprefix obj/,$(notdir $(BON:.c=.o)))
+BONOBJ	= $(addprefix obj/,$(notdir $(BON:.c=.o)))
 
 # tengo que quitar el (-lm (matematica)  -framework OpenGL -framework AppKit) de abajo? tpdp librerias de fractol
 $(NAME) : $(OBJ) | $(LIBS) #la barra significa que no es necesario volver a hacer el direct OBJ. si esta hecho no lo hagas
@@ -61,8 +63,8 @@ $(LIBS) :
 
 all : $(NAME)
 
-# bonus : $(BONOBJ) | $(LIBS) . Aqui habra que borrar movidas
-# 	$(CC) $(FLAGS) -o $(NAME) $^ -Llibft -lft -Lftprintf -lftprintf -lm -Lmlx -lmlx -framework OpenGL -framework AppKit
+bonus : $(BONOBJ) | $(LIBS)
+	$(CC) $(FLAGS) -o $(NAME) $^ -Llibft -lft
 
 clean :
 	rm -rf obj

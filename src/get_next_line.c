@@ -6,7 +6,7 @@
 /*   By: fnieves- <fnieves-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/06 20:59:49 by fnieves-          #+#    #+#             */
-/*   Updated: 2022/08/07 14:03:26 by fnieves-         ###   ########.fr       */
+/*   Updated: 2022/08/07 15:30:32 by fnieves-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 char	*get_next_line(int fd)
 {
-	static t_head_list	head;
+	static t_head_list_gnl	head;
 	char				*line;
 
 	if (fd < 0 || BUFFER_SIZE < 1 || (read(fd, &line, 0) < 0) \
@@ -39,7 +39,7 @@ char	*get_next_line(int fd)
  and calls the function to create a new node with the read buffer. 
 It has to read the file at least once. */
 
-void	ft_read_and_stash(int fd, t_head_list *head)
+void	ft_read_and_stash(int fd, t_head_list_gnl *head)
 {
 	char	*buff;
 	int		readed;
@@ -64,14 +64,14 @@ void	ft_read_and_stash(int fd, t_head_list *head)
 
 /* Add the buffer to the list in a new node and place it at the end */
 
-void	ft_add_to_stash(t_head_list *head, char *buff, int readed)
+void	ft_add_to_stash(t_head_list_gnl *head, char *buff, int readed)
 {
-	t_node	*new_node;
-	t_node	*last;
+	t_node_gnl	*new_node;
+	t_node_gnl	*last;
 	int		i;
 
 	i = 0;
-	new_node = (t_node *)malloc(sizeof(t_node));
+	new_node = (t_node_gnl *)malloc(sizeof(t_node_gnl));
 	if (!new_node)
 		return ;
 	new_node->next = NULL;
@@ -97,9 +97,9 @@ void	ft_add_to_stash(t_head_list *head, char *buff, int readed)
  in the stash, move to another var for printing
  and leaves the rest*/
 
-void	ft_extract_line(t_head_list *head, char **line)
+void	ft_extract_line(t_head_list_gnl *head, char **line)
 {
-	t_node	*temp;
+	t_node_gnl	*temp;
 	int		i;
 	int		len;
 
@@ -129,14 +129,14 @@ void	ft_extract_line(t_head_list *head, char **line)
 in the line immediately after /n, deletes all previous items
 in the list, and at the end adds the clean node */
 
-void	clean_stash(t_head_list *head)
+void	clean_stash(t_head_list_gnl *head)
 {
-	t_node	*clean_node;
-	t_node	*last;
+	t_node_gnl	*clean_node;
+	t_node_gnl	*last;
 	int		i;
 	int		j;
 
-	clean_node = (t_node *)malloc(sizeof(t_node));
+	clean_node = (t_node_gnl *)malloc(sizeof(t_node_gnl));
 	if (!clean_node || !head->header)
 		return ;
 	clean_node->next = NULL;

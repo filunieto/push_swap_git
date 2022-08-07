@@ -6,7 +6,7 @@
 /*   By: fnieves- <fnieves-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/07 12:29:31 by fnieves-          #+#    #+#             */
-/*   Updated: 2022/08/07 14:03:22 by fnieves-         ###   ########.fr       */
+/*   Updated: 2022/08/07 15:30:35 by fnieves-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 /* Parsing last element of the list to find the \n */
 
-int	found_newline(t_head_list *head)
+int	found_newline(t_head_list_gnl *head)
 {
-	t_node	*last;
+	t_node_gnl	*last;
 	int		i;
 
 	if (!head->header)
@@ -32,9 +32,9 @@ int	found_newline(t_head_list *head)
 
 /* Return the last element of the list */
 
-t_node	*ft_lst_get_last(t_head_list *head)
+t_node_gnl	*ft_lst_get_last(t_head_list_gnl *head)
 {	
-	t_node	*last;
+	t_node_gnl	*last;
 
 	if (!head)
 		return (NULL);
@@ -47,11 +47,11 @@ t_node	*ft_lst_get_last(t_head_list *head)
 /* Calculates number of char in current line, including \n if found
 and allocates memory, returnigthie malloc of the line */
 
-void	generate_line(t_head_list *head, char **line)
+void	generate_line(t_head_list_gnl *head, char **line)
 {
 	int		i;
 	int		len;
-	t_node	*temp;
+	t_node_gnl	*temp;
 
 	len = 0;
 	temp = head->header;
@@ -75,10 +75,10 @@ void	generate_line(t_head_list *head, char **line)
 		return ;
 }
 
-void	ft_delete_list(t_head_list *head)
+void	ft_delete_list(t_head_list_gnl *head)
 {
-	t_node	*current;
-	t_node	*next;
+	t_node_gnl	*current;
+	t_node_gnl	*next;
 
 	if (!head->header)
 		return ;
@@ -93,12 +93,12 @@ void	ft_delete_list(t_head_list *head)
 	head->header = NULL;
 }
 
-// int	ft_strlen(const char *str)
-// {
-// 	int	len;
+int	ft_strlen(const char *str)
+{
+	int	len;
 
-// 	len = 0;
-// 	while (*(str++))
-// 		len++;
-// 	return (len);
-// }
+	len = 0;
+	while (*(str++))
+		len++;
+	return (len);
+}

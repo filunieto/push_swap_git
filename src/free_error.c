@@ -6,7 +6,7 @@
 /*   By: fnieves- <fnieves-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/03 13:04:19 by fnieves-          #+#    #+#             */
-/*   Updated: 2022/08/05 15:32:05 by fnieves-         ###   ########.fr       */
+/*   Updated: 2022/08/07 16:20:07 by fnieves-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,4 +49,11 @@ void	exit_freelist(t_head_list *head, int message, int needs_exit)
 {
 	delete_list(head);
 	error(message, needs_exit);
+}
+
+void	free_all_error(t_head_list *head_a, t_head_list *head_b, char *line)
+{
+	free_all(head_a, head_b);
+	free(line);
+	error(1, 1);
 }

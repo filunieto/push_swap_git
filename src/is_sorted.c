@@ -6,12 +6,15 @@
 /*   By: fnieves- <fnieves-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/24 13:16:50 by fnieves-          #+#    #+#             */
-/*   Updated: 2022/08/05 15:30:09 by fnieves-         ###   ########.fr       */
+/*   Updated: 2022/08/07 15:45:15 by fnieves-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
-
+/*
+	gives 0, if not sorted
+	1 if no list or is sorted
+*/
 int	is_sorted(t_head_list *head_a)
 {
 	t_node	*current;
