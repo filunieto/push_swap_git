@@ -6,7 +6,7 @@
 /*   By: fnieves- <fnieves-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/06 20:59:49 by fnieves-          #+#    #+#             */
-/*   Updated: 2022/08/07 15:30:32 by fnieves-         ###   ########.fr       */
+/*   Updated: 2022/08/08 10:34:03 by fnieves-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 char	*get_next_line(int fd)
 {
 	static t_head_list_gnl	head;
-	char				*line;
+	char					*line;
 
 	if (fd < 0 || BUFFER_SIZE < 1 || (read(fd, &line, 0) < 0) \
 		|| fd > NUMB_FILE_DESCR)
@@ -68,7 +68,7 @@ void	ft_add_to_stash(t_head_list_gnl *head, char *buff, int readed)
 {
 	t_node_gnl	*new_node;
 	t_node_gnl	*last;
-	int		i;
+	int			i;
 
 	i = 0;
 	new_node = (t_node_gnl *)malloc(sizeof(t_node_gnl));
@@ -100,8 +100,8 @@ void	ft_add_to_stash(t_head_list_gnl *head, char *buff, int readed)
 void	ft_extract_line(t_head_list_gnl *head, char **line)
 {
 	t_node_gnl	*temp;
-	int		i;
-	int		len;
+	int			i;
+	int			len;
 
 	if (!head->header || !head)
 		return ;
@@ -133,8 +133,8 @@ void	clean_stash(t_head_list_gnl *head)
 {
 	t_node_gnl	*clean_node;
 	t_node_gnl	*last;
-	int		i;
-	int		j;
+	int			i;
+	int			j;
 
 	clean_node = (t_node_gnl *)malloc(sizeof(t_node_gnl));
 	if (!clean_node || !head->header)

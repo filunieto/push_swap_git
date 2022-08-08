@@ -6,12 +6,12 @@
 #    By: fnieves- <fnieves-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/15 10:55:21 by fnieves-          #+#    #+#              #
-#    Updated: 2022/08/07 17:09:06 by fnieves-         ###   ########.fr        #
+#    Updated: 2022/08/08 10:11:23 by fnieves-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 VPATH	= src bonus
-INCFLAGS = -I libft -I include #si ncluimls mas librerias modificar: include , buscara los headers
+INCFLAGS = -I libft -I include
 
 CC		= cc
 FLAGS	=  -Wall -Werror -Wextra
@@ -21,7 +21,6 @@ BONUSNAME	=	checker
 
 HEADER	= 	include/push_swap.h
 
-#atencion que en uno he puesto carpetas src/ y e otro no. Armonizar
 SRC	= 		push_swap.c \
 			operations_in_list.c \
 			main.c \
@@ -54,12 +53,11 @@ BON 	= 	bonus.c \
 			get_next_line.c \
 
 
-LIBS	= libft/libft.a 	# ftprintf/libftprintf.a, ...
-OBJ		= $(addprefix obj/,$(notdir $(SRC:.c=.o))) #notdir , no incluir directorio
+LIBS	= libft/libft.a
+OBJ		= $(addprefix obj/,$(notdir $(SRC:.c=.o)))
 BONOBJ	= $(addprefix obj/,$(notdir $(BON:.c=.o)))
 
-# tengo que quitar el (-lm (matematica)  -framework OpenGL -framework AppKit) de abajo? tpdp librerias de fractol
-$(NAME) : $(OBJ) | $(LIBS) #la barra significa que no es necesario volver a hacer el direct OBJ. si esta hecho no lo hagas
+$(NAME) : $(OBJ) | $(LIBS)
 	$(CC) $(FLAGS) -o $@ $^ -Llibft -lft
 	@echo "push_swap is compiled"
 
@@ -70,7 +68,6 @@ obj/%.o : %.c $(LIBS) $(HEADER) | obj
 obj :
 	mkdir obj
 
-#(cd ftprintf && make && make clean). Lo he borrado de abajo
 
 $(LIBS) :
 	-(cd libft && make)
@@ -85,7 +82,6 @@ bonus : $(BONOBJ) | $(LIBS)
 clean :
 	rm -rf obj
 
-# -(cd ftprintf && make fclean) >> he borrado esto.
 fclean : clean
 	rm -f $(NAME) $(BONUSNAME)
 	-(cd libft && make fclean)

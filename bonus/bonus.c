@@ -6,12 +6,11 @@
 /*   By: fnieves- <fnieves-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/07 15:38:29 by fnieves-          #+#    #+#             */
-/*   Updated: 2022/08/07 19:20:24 by fnieves-         ###   ########.fr       */
+/*   Updated: 2022/08/08 10:29:24 by fnieves-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
-
 
 void	checker(t_head_list *head_a, t_head_list *head_b, char *line)
 {
@@ -27,12 +26,12 @@ void	checker(t_head_list *head_a, t_head_list *head_b, char *line)
 		rotate_stack_reverse(head_a);
 	else if (!ft_strncmp(line, "rrb\n", 4))
 		rotate_stack_reverse(head_b);
-	// else if (!ft_strncmp(line, "rr\n", 3))  //necesito poner esto y listo
-	// 	ft_r_sim(a, b);
-	// else if (!ft_strncmp(line, "rrr\n", 4))
-	// 	ft_rr_sim(a, b);
-	// else if (!ft_strncmp(line, "ss\n", 3))
-	// 	ft_ss(a, b);
+	else if (!ft_strncmp(line, "rr\n", 3))
+		double_rotate(head_a, head_b);
+	else if (!ft_strncmp(line, "rrr\n", 4))
+		double_rev_rotate(head_a, head_b);
+	else if (!ft_strncmp(line, "ss\n", 3))
+		double_swap(head_a, head_b);
 	else if (!ft_strncmp(line, "pa\n", 3))
 		push_topushed(head_b, head_a);
 	else if (!ft_strncmp(line, "pb\n", 3))
@@ -58,10 +57,10 @@ int	main(int argc, char **argv)
 	lets_bonus(&head_a, &head_b);
 }
 
-void		lets_bonus(t_head_list *head_a, t_head_list *head_b)
+void	lets_bonus(t_head_list *head_a, t_head_list *head_b)
 {
 	char	*line;
-	
+
 	head_a->stack_name = 'd';
 	head_b->stack_name = 'd';
 	line = get_next_line(0);
@@ -76,5 +75,4 @@ void		lets_bonus(t_head_list *head_a, t_head_list *head_b)
 	else
 		write(1, "KO\n", 3);
 	free_all(head_a, head_b);
-
 }

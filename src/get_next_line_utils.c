@@ -6,7 +6,7 @@
 /*   By: fnieves- <fnieves-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/07 12:29:31 by fnieves-          #+#    #+#             */
-/*   Updated: 2022/08/07 15:30:35 by fnieves-         ###   ########.fr       */
+/*   Updated: 2022/08/08 10:34:24 by fnieves-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 int	found_newline(t_head_list_gnl *head)
 {
 	t_node_gnl	*last;
-	int		i;
+	int			i;
 
 	if (!head->header)
 		return (0);
@@ -49,8 +49,8 @@ and allocates memory, returnigthie malloc of the line */
 
 void	generate_line(t_head_list_gnl *head, char **line)
 {
-	int		i;
-	int		len;
+	int			i;
+	int			len;
 	t_node_gnl	*temp;
 
 	len = 0;
