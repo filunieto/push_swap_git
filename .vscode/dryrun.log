@@ -8,6 +8,7 @@ cc -Wall -Werror -Wextra -I libft -I include -c src/operations_in_list.c -o obj/
 cc -Wall -Werror -Wextra -I libft -I include -c src/main.c -o obj/main.o
 cc -Wall -Werror -Wextra -I libft -I include -c src/moves_basic_stack.c -o obj/moves_basic_stack.o
 cc -Wall -Werror -Wextra -I libft -I include -c src/convert_input_tolist.c -o obj/convert_input_tolist.o
+ 
 cc -Wall -Werror -Wextra -I libft -I include -c src/is_sorted.c -o obj/is_sorted.o
 cc -Wall -Werror -Wextra -I libft -I include -c src/bubble_sort.c -o obj/bubble_sort.o
 cc -Wall -Werror -Wextra -I libft -I include -c src/algortim_short.c -o obj/algortim_short.o

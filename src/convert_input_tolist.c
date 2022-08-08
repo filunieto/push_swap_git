@@ -6,7 +6,7 @@
 /*   By: fnieves- <fnieves-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/15 12:54:14 by fnieves-          #+#    #+#             */
-/*   Updated: 2022/08/05 15:22:07 by fnieves-         ###   ########.fr       */
+/*   Updated: 2022/08/08 19:31:44 by fnieves-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ void	extract_inpt(t_head_list *head, char **array_w, size_t *posit)
 		while (array_w[i][j])
 		{
 			if (!ft_isdigit(array_w[i][j]))
-				free_array_list(array_w, head);
+				free_chararray_list(array_w, head);
 			j++;
 		}
 		tostack_a(head, ft_atoi((const char *)array_w[i]), (int) *posit);

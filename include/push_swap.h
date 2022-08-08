@@ -6,7 +6,7 @@
 /*   By: fnieves- <fnieves-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/15 11:33:47 by fnieves-          #+#    #+#             */
-/*   Updated: 2022/08/08 10:21:50 by fnieves-         ###   ########.fr       */
+/*   Updated: 2022/08/08 19:31:11 by fnieves-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,6 +87,7 @@ void			free_array_list(char **array_words, t_head_list *head);
 void			error(int message, int needs_exit);
 void			free_all(t_head_list *head_a, t_head_list *head_b);
 void			exit_freelist(t_head_list *head, int message, int needs_exit);
+void			free_chararray_list(char **array_words, t_head_list *head);
 
 // Movements in stack
 void			swap_one_basic(t_head_list *head);

@@ -6,7 +6,7 @@
 /*   By: fnieves- <fnieves-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/15 11:33:44 by fnieves-          #+#    #+#             */
-/*   Updated: 2022/08/07 19:44:24 by fnieves-         ###   ########.fr       */
+/*   Updated: 2022/08/08 19:31:56 by fnieves-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,4 +48,11 @@ void	print_order(char c, int movement)
 		write(1, "rr", 2);
 	write(1, &c, 1);
 	write(1, "\n", 1);
+}
+
+void	free_chararray_list(char **array_words, t_head_list *head)
+{
+	free(array_words);
+	delete_list(head);
+	error(1, 1);
 }

@@ -8,7 +8,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # This program built for i386-apple-darwin11.3.0
  
 
-# Make data base, printed on Mon Aug  8 11:07:43 2022
+# Make data base, printed on Mon Aug  8 19:00:11 2022
 
 # Variables
 
@@ -47,13 +47,13 @@ LSCOLORS = Gxfxcxdxbxegedabagacad
 # makefile (from `Makefile', line 13)
 VPATH = src bonus
 # environment
-LaunchInstanceID = 846B7D54-BEE7-47A8-BE94-005AE273F4C5
+LaunchInstanceID = B5D0DC94-C769-45DD-92E7-0331C405036E
 # environment
 ELECTRON_RUN_AS_NODE = 1
 # default
 .FEATURES := target-specific order-only second-expansion else-if archives jobserver check-symlink
 # environment
-SSH_AUTH_SOCK = /private/tmp/com.apple.launchd.4NyBW1gYsg/Listeners
+SSH_AUTH_SOCK = /private/tmp/com.apple.launchd.DDWeioUYR4/Listeners
 # automatic
 %F = $(notdir $%)
 # environment
@@ -123,7 +123,7 @@ MFLAGS = -Rrqp
 # makefile (from `Makefile', line 20)
 BONUSNAME = checker
 # environment
-XPC_SERVICE_NAME = com.apple.xpc.launchd.oneshot.0x10000001.Electron
+XPC_SERVICE_NAME = com.apple.xpc.launchd.oneshot.0x10000002.Electron
 # automatic
 +D = $(patsubst %/,%,$(dir $+))
 # automatic
@@ -161,9 +161,9 @@ BONOBJ = $(addprefix obj/,$(notdir $(BON:.c=.o)))
 # environment
 LANG = C
 # environment
-VSCODE_PID = 69819
+VSCODE_PID = 89318
 # variable set hash-table stats:
-# Load=75/1024=7%, Rehash=0, Collisions=9/115=8%
+# Load=75/1024=7%, Rehash=0, Collisions=7/110=6%
 
 # Pattern-specific Variable Values
 
@@ -172,12 +172,12 @@ VSCODE_PID = 69819
 # Directories
 
 # include (device 16777225, inode 1926255): 3 files, no impossibilities so far.
-# . (device 16777225, inode 1799082): 20 files, 1 impossibilities.
+# . (device 16777225, inode 1799082): 21 files, 1 impossibilities.
 # src (device 16777225, inode 1926278): 15 files, no impossibilities.
 # bonus (device 16777225, inode 2299295): 3 files, no impossibilities.
 # libft (device 16777225, inode 1936146): No files, no impossibilities so far.
 
-# 41 files, 1 impossibilities in 5 directories.
+# 42 files, 1 impossibilities in 5 directories.
 
 # Implicit Rules
 
@@ -235,9 +235,18 @@ all: push_swap
 #  Implicit rule search has not been done.
 #  File does not exist.
 #  File has been updated.
-#  Needs to be updated (-q is set).
+#  Successfully updated.
 # variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/5=0%
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+# Not a target:
+src/get_next_line_utils.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-08-08 10:34:24
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
 
 obj/moves_basic_stack.o: src/moves_basic_stack.c libft/libft.a include/push_swap.h | obj
 #  Implicit rule search has been done.
@@ -268,11 +277,18 @@ obj/push_swap.o: src/push_swap.c libft/libft.a include/push_swap.h | obj
 	$(CC) $(FLAGS) $(INCFLAGS) -c $< -o $@
 	
 
-# Not a target:
-obj/get_next_line.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
+obj/get_next_line.o: src/get_next_line.c libft/libft.a include/push_swap.h | obj
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: `get_next_line'
+#  Last modified 2022-08-08 11:50:41
+#  File has been updated.
+#  Successfully updated.
+ 
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+#  commands to execute (from `Makefile', line 66):
+	$(CC) $(FLAGS) $(INCFLAGS) -c $< -o $@
+	
 
 obj/main.o: src/main.c libft/libft.a include/push_swap.h | obj
 #  Implicit rule search has been done.
@@ -283,7 +299,6 @@ obj/main.o: src/main.c libft/libft.a include/push_swap.h | obj
 # variable set hash-table stats:
 # Load=0/32=0%, Rehash=0, Collisions=0/0=0%
 #  commands to execute (from `Makefile', line 66):
- 
 	$(CC) $(FLAGS) $(INCFLAGS) -c $< -o $@
 	
 
@@ -397,6 +412,15 @@ bonus: obj/bonus.o obj/push_swap.o obj/operations_in_list.o obj/moves_basic_stac
 	
 
 # Not a target:
+src/get_next_line.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-08-08 10:34:03
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+# Not a target:
 obj/checking_lists.o:
 #  Implicit rule search has been done.
 #  Last modified 2022-08-08 10:28:05
@@ -435,7 +459,7 @@ src/operations_in_list.c:
 
 obj:
 #  Implicit rule search has not been done.
-#  Last modified 2022-08-08 10:28:06
+#  Last modified 2022-08-08 11:50:46
 #  File has been updated.
 #  Successfully updated.
 #  commands to execute (from `Makefile', line 69):
@@ -507,11 +531,11 @@ obj/convert_input_tolist.o: src/convert_input_tolist.c libft/libft.a include/pus
 
 push_swap: obj/push_swap.o obj/operations_in_list.o obj/main.o obj/moves_basic_stack.o obj/convert_input_tolist.o obj/checking_lists.o obj/is_sorted.o obj/bubble_sort.o obj/algortim_short.o obj/algortim_medium.o obj/search_limits_stack.o obj/free_error.o obj/get_next_line_utils.o obj/get_next_line.o | libft/libft.a
 #  Implicit rule search has not been done.
-#  Last modified 2022-08-08 10:28:06
+#  Last modified 2022-08-08 11:50:41
 #  File has been updated.
-#  Needs to be updated (-q is set).
+#  Successfully updated.
 # variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/5=0%
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
 #  commands to execute (from `Makefile', line 61):
 	$(CC) $(FLAGS) -o $@ $^ -Llibft -lft
 	@echo "push_swap is compiled"
@@ -520,41 +544,31 @@ push_swap: obj/push_swap.o obj/operations_in_list.o obj/main.o obj/moves_basic_s
 obj/free_error.o: src/free_error.c libft/libft.a include/push_swap.h | obj
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: `free_error'
-#  Last modified 2022-08-08 10:28:06
+#  Last modified 2022-08-08 11:50:41
 #  File has been updated.
-#  Needs to be updated (-q is set).
-# automatic
-# @ := obj/free_error.o
-# automatic
-# % := 
-# automatic
-# * := free_error
-# automatic
-# + := src/free_error.c libft/libft.a include/push_swap.h
-# automatic
-# | := obj
-# automatic
-# < := src/free_error.c
-# automatic
-# ^ := src/free_error.c libft/libft.a include/push_swap.h
-# automatic
-# ? := src/free_error.c
+ 
+#  Successfully updated.
 # variable set hash-table stats:
-# Load=8/32=25%, Rehash=0, Collisions=1/15=7%
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+#  commands to execute (from `Makefile', line 66):
+	$(CC) $(FLAGS) $(INCFLAGS) -c $< -o $@
+	
+
+obj/get_next_line_utils.o: src/get_next_line_utils.c libft/libft.a include/push_swap.h | obj
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: `get_next_line_utils'
+#  Last modified 2022-08-08 11:50:41
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
 #  commands to execute (from `Makefile', line 66):
 	$(CC) $(FLAGS) $(INCFLAGS) -c $< -o $@
 	
 
 # Not a target:
-obj/get_next_line_utils.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-
-# Not a target:
 src/algortim_medium.c:
 #  Implicit rule search has been done.
- 
 #  Last modified 2022-08-07 14:09:43
 #  File has been updated.
 #  Successfully updated.
@@ -583,7 +597,7 @@ obj/bubble_sort.o: src/bubble_sort.c libft/libft.a include/push_swap.h | obj
 	
 
 # files hash-table stats:
-# Load=40/1024=4%, Rehash=0, Collisions=3/267=1%
+# Load=42/1024=4%, Rehash=0, Collisions=3/299=1%
 # VPATH Search Paths
 
 # No `vpath' search paths.
@@ -596,6 +610,6 @@ obj/bubble_sort.o: src/bubble_sort.c libft/libft.a include/push_swap.h | obj
 # strcache size: total = 4096 / max = 4096 / min = 4096 / avg = 4096
 # strcache free: total = 4087 / max = 4087 / min = 4087 / avg = 4087
 
-# Finished Make data base on Mon Aug  8 11:07:43 2022
+# Finished Make data base on Mon Aug  8 19:00:11 2022
 
  

@@ -6,7 +6,7 @@
 #    By: fnieves- <fnieves-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/15 10:55:21 by fnieves-          #+#    #+#              #
-#    Updated: 2022/08/08 10:11:23 by fnieves-         ###   ########.fr        #
+#    Updated: 2022/08/08 19:37:24 by fnieves-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,7 +26,6 @@ SRC	= 		push_swap.c \
 			main.c \
 			moves_basic_stack.c \
 			convert_input_tolist.c \
-			checking_lists.c \
 			is_sorted.c \
 			bubble_sort.c \
 			algortim_short.c \
@@ -42,7 +41,6 @@ BON 	= 	bonus.c \
 			operations_in_list.c \
 			moves_basic_stack.c \
 			convert_input_tolist.c \
-			checking_lists.c \
 			is_sorted.c \
 			bubble_sort.c \
 			algortim_short.c \
