@@ -6,7 +6,7 @@
 /*   By: fnieves- <fnieves-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/03 13:04:19 by fnieves-          #+#    #+#             */
-/*   Updated: 2022/08/08 19:31:52 by fnieves-         ###   ########.fr       */
+/*   Updated: 2022/08/08 20:32:05 by fnieves-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,6 @@ void	free_array_list(char **array_words, t_head_list *head)
 	int	i;
 
 	i = 0;
-	printf("dentro de free array_w[i][j] %c \n", array_words[i][0]);
 	while (array_words[i])
 	{
 		free(array_words[i++]);

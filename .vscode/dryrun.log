@@ -2,6 +2,7 @@ make --dry-run --always-make --keep-going --print-directory
 make: Entering directory `/Users/fnieves-/Documents/Proyectos/push swap pryct/push_swap_git'
 (cd libft && make)
 (cd libft && make clean)
+ 
 mkdir obj
 cc -Wall -Werror -Wextra -I libft -I include -c src/push_swap.c -o obj/push_swap.o
 cc -Wall -Werror -Wextra -I libft -I include -c src/operations_in_list.c -o obj/operations_in_list.o
@@ -17,7 +18,7 @@ cc -Wall -Werror -Wextra -I libft -I include -c src/search_limits_stack.c -o obj
 cc -Wall -Werror -Wextra -I libft -I include -c src/free_error.c -o obj/free_error.o
 cc -Wall -Werror -Wextra -I libft -I include -c src/get_next_line_utils.c -o obj/get_next_line_utils.o
 cc -Wall -Werror -Wextra -I libft -I include -c src/get_next_line.c -o obj/get_next_line.o
-cc -Wall -Werror -Wextra -o push_swap obj/push_swap.o obj/operations_in_list.o obj/main.o obj/moves_basic_stack.o obj/convert_input_tolist.o obj/checking_lists.o obj/is_sorted.o obj/bubble_sort.o obj/algortim_short.o obj/algortim_medium.o obj/search_limits_stack.o obj/free_error.o obj/get_next_line_utils.o obj/get_next_line.o -Llibft -lft
+cc -Wall -Werror -Wextra -o push_swap obj/push_swap.o obj/operations_in_list.o obj/main.o obj/moves_basic_stack.o obj/convert_input_tolist.o obj/is_sorted.o obj/bubble_sort.o obj/algortim_short.o obj/algortim_medium.o obj/search_limits_stack.o obj/free_error.o obj/get_next_line_utils.o obj/get_next_line.o -Llibft -lft
 echo "push_swap is compiled"
 make: Leaving directory `/Users/fnieves-/Documents/Proyectos/push swap pryct/push_swap_git'
  
