@@ -10,6 +10,12 @@ Number of approaches in movements
 - 100n: Between 500 and 700 movements
 - ./500n: Between 5100 and 5500 movements 
 
+<p >
+	<br><br>
+	For further information about 42cursus and its projects, please refer to <a href="https://github.com/filunieto/push_swap_git/blob/main/en.subject_swap.pdf"><b>42cursus repo</b></a>.
+</p>
+
+
 ![Push_swap](gifs/push_swap.gif)
 
 ## Prerequisites
@@ -18,8 +24,8 @@ This project is for Mac OS.
 
 ## Installation
 
-* `git clone git@github.com:MLeganes/42PushSwap.git` this repository
-* `cd 42PushSwap`
+* `git clone https://github.com/filunieto/push_swap_git.git` this repository
+* Enter in the cloned folder (per default)`cd push_swap_git`
 
 ## Running
  
